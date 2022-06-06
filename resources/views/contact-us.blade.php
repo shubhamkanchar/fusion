@@ -15,7 +15,7 @@
 <!-- ######## Page  Title End ####### -->
 
 <div style="margin-top:0px;" class="row no-margin">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3783.8902346910813!2d73.81871191400049!3d18.48863052493224!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bfe631fc9f7f%3A0x40bae74e7709affa!2sfusionpune!5e0!3m2!1sen!2sin!4v1648118236008!5m2!1sen!2sin" style='width:100%'; height="610" style="border:0;" allowfullscreen="" loading="lazy">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3783.8902346910813!2d73.81871191400049!3d18.48863052493224!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bfe631fc9f7f%3A0x40bae74e7709affa!2sfusionpune!5e0!3m2!1sen!2sin!4v1648118236008!5m2!1sen!2sin" style='width:100%' ; height="610" style="border:0;" allowfullscreen="" loading="lazy">
     </iframe>
 </div>
 
@@ -23,31 +23,35 @@
     <div class="container">
         <div class="row">
             <div style="padding:20px" class="col-sm-6">
-                <h2 style="font-size:18px">Contact Form</h2>
-                <div class="row">
-                    <div style="padding-top:10px;" class="col-sm-3"><label>Enter Name :</label></div>
-                    <div class="col-sm-8"><input type="text" placeholder="Enter Name" name="name" class="form-control input-sm"></div>
-                </div>
-                <div style="margin-top:10px;" class="row">
-                    <div style="padding-top:10px;" class="col-sm-3"><label>Email Address :</label></div>
-                    <div class="col-sm-8"><input type="text" name="name" placeholder="Enter Email Address" class="form-control input-sm"></div>
-                </div>
-                <div style="margin-top:10px;" class="row">
-                    <div style="padding-top:10px;" class="col-sm-3"><label>Mobile Number:</label></div>
-                    <div class="col-sm-8"><input type="text" name="name" placeholder="Enter Mobile Number" class="form-control input-sm"></div>
-                </div>
-                <div style="margin-top:10px;" class="row">
-                    <div style="padding-top:10px;" class="col-sm-3"><label>Enter Message:</label></div>
-                    <div class="col-sm-8">
-                        <textarea rows="5" placeholder="Enter Your Message" class="form-control input-sm"></textarea>
+                <form id="ContactForm" action="{{ route('request_mail') }}">
+                    @csrf()
+                    <input type="hidden" name="token" value="message">
+                    <h2 style="font-size:18px">Contact Form</h2>
+                    <div class="row">
+                        <div style="padding-top:10px;" class="col-sm-3"><label>Enter Name :</label></div>
+                        <div class="col-sm-8"><input type="text" placeholder="Enter Name" name="name" class="form-control input-sm"></div>
                     </div>
-                </div>
-                <div style="margin-top:10px;" class="row">
-                    <div style="padding-top:10px;" class="col-sm-3"><label></label></div>
-                    <div class="col-sm-8">
-                        <button class="btn btn-success btn-sm">Send Message</button>
+                    <div style="margin-top:10px;" class="row">
+                        <div style="padding-top:10px;" class="col-sm-3"><label>Email Address :</label></div>
+                        <div class="col-sm-8"><input type="text" name="email" placeholder="Enter Email Address" class="form-control input-sm"></div>
                     </div>
-                </div>
+                    <div style="margin-top:10px;" class="row">
+                        <div style="padding-top:10px;" class="col-sm-3"><label>Mobile Number:</label></div>
+                        <div class="col-sm-8"><input type="text" name="mobile" placeholder="Enter Mobile Number" class="form-control input-sm"></div>
+                    </div>
+                    <div style="margin-top:10px;" class="row">
+                        <div style="padding-top:10px;" class="col-sm-3"><label>Enter Message:</label></div>
+                        <div class="col-sm-8">
+                            <textarea name="comment" rows="5" placeholder="Enter Your Message" class="form-control input-sm"></textarea>
+                        </div>
+                    </div>
+                    <div style="margin-top:10px;" class="row">
+                        <div style="padding-top:10px;" class="col-sm-3"><label></label></div>
+                        <div class="col-sm-8">
+                            <button type="submit" class="btn btn-success btn-sm">Send Message</button>
+                        </div>
+                    </div>
+                </form>
             </div>
             <div class="col-sm-6">
                 <div style="margin:50px" class="serv">
@@ -66,5 +70,67 @@
 @endsection
 
 @section('jspage')
+<script>
+    $(document).ready(function() {
+        $("#ContactForm").validate({
+            rules: {
+                name: {
+                    required: true,
+                },
+                email: {
+                    required: true
+                },
+                mobile: {
+                    required: true,
+                    digits: true,
+                    maxlength: 10,
+                    minlength: 10
+                },
+                comment: {
+                    required: true
+                },
+            },
+            messages: {
+                name: {
+                    required: 'Enter name',
+                },
+                email: {
+                    required: 'Enter email'
+                },
+                mobile: {
+                    required: 'Enter Mobile',
+                    digits: 'Enter valid mobile'
+                },
+                comment: {
+                    required: "Please enter message we would like to hear from you"
+                },
+            },
+            submitHandler: function(form, e) {
+                e.preventDefault();
+                var form = $(form);
+                var actionUrl = form.attr('action');
 
+                $.ajax({
+                    type: "POST",
+                    url: actionUrl,
+                    data: form.serialize(), // serializes the form's elements.
+                    success: function(data) {
+                        if (data.flag == 'success') {
+                            toastr.success(data.msg);
+                            document.getElementById("ContactForm").reset();
+                        } else if (data.flag == 'error') {
+                            toastr.success(data.msg);
+                        }
+                    }
+                });
+            }
+        });
+
+        // $("#callback").submit(function(e) {
+        //     e.preventDefault();
+
+
+        // });
+    });
+</script>
 @endsection

@@ -56,7 +56,7 @@
                 </div>
                 <div class="col-sm-3 numb">
                     <h3>10</h3>
-                    <span>Cources</span>
+                    <span>Courses</span>
                 </div>
                 <div class="col-sm-3 numb">
                     <h3>15</h3>

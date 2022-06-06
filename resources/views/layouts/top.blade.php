@@ -8,3 +8,13 @@
 <link rel="stylesheet" href="{{ url('public/assets/plugins/slider/css/owl.carousel.min.css') }}">
 <link rel="stylesheet" href="{{ url('public/assets/plugins/slider/css/owl.theme.default.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ url('public/assets/css/style.css') }}" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
+<style>
+    .error {
+        color: red;
+    }
+
+    .container {
+        max-width: 1140px !important;
+    }
+</style>

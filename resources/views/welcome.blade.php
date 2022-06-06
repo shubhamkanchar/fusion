@@ -11,9 +11,9 @@
                     <div class="row">
                         <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-12 col-xs-12">
                             <div class="slider-captions">
-                                <h1 class="slider-title">Best Free University Template</h1>
-                                <p class="slider-text hidden-xs">We can help you conquer a wide range of psychological and emotional problems.</p>
-                                <a href="{{ route('cources') }}" class="btn btn-success hidden-xs">View All Cources</a>
+                                <h1 class="slider-title">Fusion Software Institute</h1>
+                                <p class="slider-text hidden-xs">We can help you conquer a wide range career problems.</p>
+                                <a href="{{ route('cources') }}" class="btn btn-success hidden-xs">View All Courses</a>
                             </div>
                         </div>
                     </div>
@@ -27,8 +27,8 @@
                     <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-12 col-xs-12">
                         <div class="slider-captions">
                             <h1 class="slider-title">Education Learning Course</h1>
-                            <p class="slider-text hidden-xs">Phasellus enim libero, blandit vel sapien vitae, condimentum ultricies magna et.</p>
-                            <a href="#" class="btn btn-success hidden-xs">Schedule A Visit</a>
+                            <p class="slider-text hidden-xs">Get expert advise and Q&A session</p>
+                            <a type="button" data-toggle="modal" data-target="#myModal" class="btn btn-success hidden-xs text-white">Schedule A Visit</a>
                         </div>
                     </div>
                 </div>
@@ -40,8 +40,8 @@
                 <div class="row">
                     <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-12 col-xs-12">
                         <div class="slider-captions">
-                            <h1 class="slider-title">Best Free University Template</h1>
-                            <p class="slider-text hidden-xs">Phasellus enim libero, blandit vel sapien vitae, condimentum ultricies magna et.</p>
+                            <h1 class="slider-title">Best Institute to learn and Grow</h1>
+                            <p class="slider-text hidden-xs">Learn by working on live project in top tech company</p>
                             <a href="{{ route('login') }}" class="btn btn-success hidden-xs">Join Today</a>
                         </div>
                     </div>
@@ -84,45 +84,23 @@
 <div class="popular-cources">
     <div class="container">
         <div class="session-title row">
-            <h2>Our Cources</h2>
+            <h2>Our Courses</h2>
         </div>
         <div class="row courc-ro">
+            @foreach($course as $c)
             <div class="col-md-4">
                 <div class="courc-card">
-                    <img src="{{ url('public/assets/images/cources/cource-1.jpg') }}" alt="">
+                    <img style="height: 200px;" src="{{ url('public/uploads/course/').'/'.$c->file }}" alt="">
                     <div class="cource-det">
-                        <h6>Graphic Design</h6>
+                        <h6>{{ $c->name }}</h6>
                         <ul>
-                            <li><i class="fas fa-graduation-cap"></i> Adam Jhon <span>Free</span></li>
-                            <li><i class="far fa-calendar-plus"></i> June 23- Nov23</li>
+                            <li><i class="fas fa-graduation-cap"></i> Adam Jhon <span>{{ $c->seats }} Seats</span></li>
+                            <li><i class="far fa-calendar-plus"></i> {{ $c->duration }} Months</li>
                         </ul>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="courc-card">
-                    <img src="{{ url('public/assets/images/cources/cource-2.jpg') }}" alt="">
-                    <div class="cource-det">
-                        <h6>Online Marketing</h6>
-                        <ul>
-                            <li><i class="fas fa-graduation-cap"></i> Adam Jhon <span>Free</span></li>
-                            <li><i class="far fa-calendar-plus"></i> June 23- Nov23</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="courc-card">
-                    <img src="{{ url('public/assets/images/cources/cource-3.jpg') }}" alt="">
-                    <div class="cource-det">
-                        <h6>App Programing</h6>
-                        <ul>
-                            <li><i class="fas fa-graduation-cap"></i> Adam Jhon <span>Free</span></li>
-                            <li><i class="far fa-calendar-plus"></i> June 23- Nov23</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </div>
@@ -146,7 +124,7 @@
                 </div>
                 <div class="col-sm-3 numb">
                     <h3>10</h3>
-                    <span>Cources</span>
+                    <span>Courses</span>
                 </div>
                 <div class="col-sm-3 numb">
                     <h3>15</h3>
@@ -193,7 +171,6 @@
                     <img src="{{ url('public/assets/images/team/avatar-3.jpg') }}" alt="">
                     <h6>Ahalkji Jhon</h6>
                     <p>Graphic Design</p>
-
                     <ul>
                         <li><i class="fab fa-facebook-f"></i></li>
                         <li><i class="fab fa-twitter"></i></li>
@@ -244,69 +221,25 @@
         </div>
         <div class="row-blog row">
             <div class="col-md-10 vbf mx-auto">
+                @foreach($batch as $b)
                 <div class="blog-card row">
                     <div class="col-2">
                         <div class="date-box">
-                            <span>Jun</span>
-                            <p>3</p>
-                            <small>2019</small>
+                            <span>{{ date_format(date_create($b->date),"F") }}</span>
+                            <p>{{ date_format(date_create($b->date),"d") }}</p>
+                            <small>{{ date_format(date_create($b->date),"Y") }}</small>
                         </div>
                     </div>
-                    <div class="col-7 setv">
-                        <h4>Photo Exibition in the Library</h4>
+                    <div class="col-10 setv">
+                        <h4>{{ $b->name }}</h4>
                         <ul>
-                            <li>8:00 - 12:00</li>
-                            <li>Forest, Avenue, Aenean egestas</li>
+                            <li>{{ date('h:i a', strtotime($b->time)); }}</li>
+                            <li>{{ $b->days }}</li>
                         </ul>
                     </div>
-                    <div class="col-3 img-cv">
-                        <img src="{{ url('public/assets/images/cources/cource-1.jpg') }}" alt="">
-                    </div>
                 </div>
-
-                <div class="blog-card row">
-                    <div class="col-2">
-                        <div class="date-box">
-                            <span>Jun</span>
-                            <p>2</p>
-                            <small>2019</small>
-                        </div>
-                    </div>
-                    <div class="col-7 setv">
-                        <h4>Photo Exibition in the Library</h4>
-                        <ul>
-                            <li>8:00 - 12:00</li>
-                            <li>Forest, Avenue, Aenean egestas</li>
-                        </ul>
-                    </div>
-                    <div class="col-3 img-cv">
-                        <img src="{{ url('public/assets/images/cources/cource-2.jpg') }}" alt="">
-                    </div>
-                </div>
-
-
-                <div class="blog-card row">
-                    <div class="col-2">
-                        <div class="date-box">
-                            <span>Jun</span>
-                            <p>4</p>
-                            <small>2019</small>
-                        </div>
-                    </div>
-                    <div class="col-7 setv">
-                        <h4>Photo Exibition in the Library</h4>
-                        <ul>
-                            <li>8:00 - 12:00</li>
-                            <li>Forest, Avenue, Aenean egestas</li>
-                        </ul>
-                    </div>
-                    <div class="col-3 img-cv">
-                        <img src="{{ url('public/assets/images/cources/cource-3.jpg') }}" alt="">
-                    </div>
-                </div>
-
-
-                <div class="blog-card row">
+                @endforeach
+                <!-- <div class="blog-card row">
                     <div class="col-2">
                         <div class="date-box">
                             <span>Jun</span>
@@ -324,8 +257,7 @@
                     <div class="col-3 img-cv">
                         <img src="{{ url('public/assets/images/cources/cource-2.jpg') }}" alt="">
                     </div>
-                </div>
-                
+                </div> -->
             </div>
         </div>
         <div class="text-center mb-5">
@@ -334,3 +266,4 @@
     </div>
 </div>
 @endsection
+

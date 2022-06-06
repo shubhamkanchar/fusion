@@ -1,17 +1,61 @@
+<!-- The Modal -->
+<div class="modal" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Book Demo Class</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="container">
+                    <form id="ContactForm" action="{{ route('request_mail') }}">
+                        @csrf()
+                        <input type="hidden" name="token" value="message">
+                        <h2 style="font-size:18px">Contact Form</h2>
+                        <div class="row form-group">
+                            <label> Name :</label>
+                            <input type="text" placeholder="Enter Name" name="name" class="form-control input-sm">
+                        </div>
+                        <div class="form-group row">
+                            <label>Email Address :</label>
+                            <input type="text" name="email" placeholder="Enter Email Address" class="form-control input-sm">
+                        </div>
+                        <div class="row form-group">
+                            <label>Mobile Number:</label>
+                            <input type="text" name="mobile" placeholder="Enter Mobile Number" class="form-control input-sm">
+                        </div>
+                        <div class="row form-group">
+                            <label>Select course:</label>
+                            <select name="comment" rows="5" placeholder="Enter select course" class="form-control input-sm">
+
+                            </select>
+                        </div>
+                        <div class="row  text-center">
+                            <button type="submit" class="btn btn-success">Book</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <footer>
     <div class="container">
         <div class="row">
             <div class="col-md-3 about">
                 <h2>About Us</h2>
-                <p>Phasellus scelerisque ornare nisl sit amet pulvinar. Nunc non scelerisque augue. Proin et sollicitudin velit. </p>
+                <p>We are here to upgrade you.</p>
                 <div class="foot-address">
                     <div class="icon">
                         <i class="fas fa-map-marker-alt"></i>
                     </div>
                     <div class="addet">
-                        BlueDart
-                        Marthandam (K.K District)
-                        Tamil Nadu, IND
+                        Office: 505 , 6th Floor Vaishnavi Building Lane No 2 Near Vikas Mitra Mandal Karvenagar Pune 411052
                     </div>
                 </div>
                 <div class="foot-address">
@@ -19,8 +63,7 @@
                         <i class="far fa-envelope-open"></i>
                     </div>
                     <div class="addet">
-                        info@smarteyeapps.com <br>
-                        sales@smarteyeapps.com
+                        fusionpune1@gmail.com
                     </div>
                 </div>
                 <div class="foot-address">
@@ -28,13 +71,12 @@
                         <i class="fas fa-mobile-alt"></i>
                     </div>
                     <div class="addet">
-                        +23 323 43434 <br>
-                        +1 3232 434 55
+                        +91 7498992609
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-3 glink">
+            <div class="col-md-2 glink">
                 <h2>Link</h2>
                 <ul>
                     <li><a href="{{ route('welcome') }}"><i class="fas fa-angle-double-right"></i>Home</a></li>
@@ -46,36 +88,38 @@
                 </ul>
             </div>
 
-            <div class="col-md-3 tags">
-                <h2>Easy Tags</h2>
+            <div class="col-md-4 tags">
+                <h2>Social Connect</h2>
                 <ul>
-                    <li>Finance</li>
-                    <li>Web Design</li>
-                    <li>Internet Pro</li>
-                    <li>Node Js</li>
-                    <li>Java Swing</li>
-                    <li>Angular Js</li>
-                    <li>Vue Js</li>
+                    <li><a><img style="width:50px" src="{{ url('public/assets/images/Google_plus.png') }}"></a></li>
+                    <li><a><img style="width:50px" src="{{ url('public/assets/images/twitter.png') }}"></a></li>
+                    <li><a target="_blank" href="https://www.facebook.com/111239338082168/posts/130299146176187/"><img style="width:50px" src="{{ url('public/assets/images/facebook.png') }}"></a></li>
+                    <li><a target="_blank" href="https://api.whatsapp.com/send/?phone={{ env('WHATSAPP_NO') }}&text={{ urlencode('I am intersted in course you provide') }}"><img style="width:50px" src="{{ url('public/assets/images/whatsapp.png') }}"></a></li>
+
+                    <li><a><img style="width:50px" src="{{ url('public/assets/images/youtube.png') }}"></a></li>
+                    <li><a target="_blank" href="https://www.instagram.com/p/CZ1-eICPucZ/"><img style="width:50px" src="{{ url('public/assets/images/instagram.png') }}"></a></li>
+
                 </ul>
             </div>
 
             <div class="col-md-3 fotblog">
                 <h2>Request-a-Callback</h2>
-                <form>
+                <form id="callback" action="{{ route('request_mail') }}">
+                    @csrf()
+                    <input type="hidden" name="token" value="callback">
                     <div class="row">
                         <label>Enter Name :</label>
                         <div class="col-sm-12"><input type="text" placeholder="Enter Name" name="name" class="form-control input-sm"></div>
                     </div>
                     <div class="row">
                         <label>Email Address :</label>
-                        <div class="col-sm-12"><input type="text" name="name" placeholder="Enter Email Address" class="form-control input-sm"></div>
+                        <div class="col-sm-12"><input type="text" name="email" placeholder="Enter Email Address" class="form-control input-sm"></div>
                     </div>
                     <div class="row">
                         <label>Mobile Number:</label>
-                        <div class="col-sm-12"><input type="text" name="name" placeholder="Enter Mobile Number" class="form-control input-sm"></div>
+                        <div class="col-sm-12"><input type="number" name="mobile" placeholder="Enter Mobile Number" class="form-control input-sm"></div>
                     </div>
                     <div class="row">
-                        <label></label>
                         <div class="col-sm-8">
                             <button class="btn btn-primary">Request Callback</button>
                         </div>
