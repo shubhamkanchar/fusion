@@ -1,3 +1,6 @@
+@php
+$course=App\Models\cources::all();
+@endphp
 <!-- The Modal -->
 <div class="modal" id="myModal">
     <div class="modal-dialog">
@@ -12,9 +15,9 @@
             <!-- Modal body -->
             <div class="modal-body">
                 <div class="container">
-                    <form id="ContactForm" action="{{ route('request_mail') }}">
+                    <form id="visitscheduleform" action="{{ route('request_mail') }}">
                         @csrf()
-                        <input type="hidden" name="token" value="message">
+                        <input type="hidden" name="token" value="visit">
                         <h2 style="font-size:18px">Contact Form</h2>
                         <div class="row form-group">
                             <label> Name :</label>
@@ -30,12 +33,15 @@
                         </div>
                         <div class="row form-group">
                             <label>Select course:</label>
-                            <select name="comment" rows="5" placeholder="Enter select course" class="form-control input-sm">
-
+                            <select name="course" rows="5" placeholder="Enter select course" class="form-control input-sm">
+                                <option></option>
+                                @foreach($course as $c)
+                                <option>{{ $c->name }}</option>
+                                @endforeach
                             </select>
                         </div>
-                        <div class="row  text-center">
-                            <button type="submit" class="btn btn-success">Book</button>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-success"><i class="fa fa-circle-o-notch fa-spin hidden mr-2 fa-spin-visit"></i> Book</button>
                         </div>
                     </form>
                 </div>
@@ -121,7 +127,7 @@
                     </div>
                     <div class="row">
                         <div class="col-sm-8">
-                            <button class="btn btn-primary">Request Callback</button>
+                            <button class="btn btn-primary"><i class="fa fa-circle-o-notch fa-spin hidden mr-2 fa-spin-call"></i> Request Callback</button>
                         </div>
                     </div>
                 </form>
@@ -134,11 +140,10 @@
         <a href="{{ route('welcome') }}">2022 &copy; All Rights Reserved | Designed and Developed by {{ config('app.name', 'Laravel') }}</a>
 
         <span>
-            <a><i class="fab fa-github"></i></a>
-            <a><i class="fab fa-google-plus-g"></i></a>
-            <a><i class="fab fa-pinterest-p"></i></a>
-            <a><i class="fab fa-twitter"></i></a>
-            <a><i class="fab fa-facebook-f"></i></a>
+            <a target="_blank" href="https://www.instagram.com/p/CZ1-eICPucZ/"><i class="text-white fab fa-instagram"></i></a>
+            <a target="_blank" href="https://api.whatsapp.com/send/?phone={{ env('WHATSAPP_NO') }}&text={{ urlencode('I am intersted in course you provide') }}"><i class="text-white fab fa-whatsapp"></i></a>
+            <a><i class="text-white fab fa-twitter"></i></a>
+            <a target="_blank" href="https://www.facebook.com/111239338082168/posts/130299146176187/"><i class=" text-white fab fa-facebook-f"></i></a>
         </span>
     </div>
 </div>

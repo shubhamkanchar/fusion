@@ -86,6 +86,15 @@ Route::middleware(['auth', 'user-access:admin','verified'])->prefix('admin')->na
     Route::get('/course/update/{id}', [AdminController::class, 'update_course'])->name('update_course');
     Route::get('/course/list', [AdminController::class, 'course_list'])->name('course_list');
     Route::get('/course/delete/{id}', [AdminController::class, 'course_delete'])->name('course_delete');
+
+    Route::get('/instructor/add', [AdminController::class, 'add_instructor'])->name('add_instructor');
+    Route::any('/instructor/create', [AdminController::class, 'create_instructor'])->name('create_instructor');
+    Route::get('/instructor/update/{id}', [AdminController::class, 'update_instructor'])->name('update_instructor');
+    Route::get('/instructor/list', [AdminController::class, 'instructor_list'])->name('instructor_list');
+    Route::get('/instructor/delete/{id}', [AdminController::class, 'instructor_delete'])->name('instructor_delete');
+
+    Route::get('/request/list', [AdminController::class, 'request_list'])->name('request_list');
+    Route::get('/request/delete/{id}', [AdminController::class, 'request_delete'])->name('request_delete');
 });
 
 Route::middleware(['auth', 'user-access:manager','verified'])->prefix('manager')->name('manager.')->group(function () {

@@ -13,7 +13,8 @@
                     required: true,
                 },
                 email: {
-                    required: true
+                    required: true,
+                    email:true
                 },
                 mobile: {
                     required: true,
@@ -33,8 +34,67 @@
                     required: 'Enter Mobile',
                     digits: 'Enter valid mobile'
                 }
+
             },
             submitHandler: function(form, e) {
+                $('.fa-spin-call').removeClass('hidden');
+                e.preventDefault();
+                var form = $(form);
+                var actionUrl = form.attr('action');
+
+                $.ajax({
+                    type: "POST",
+                    url: actionUrl,
+                    data: form.serialize(), // serializes the form's elements.
+                    success: function(data) {
+                        $('.fa-spin-call').addClass('hidden');
+                        if (data.flag == 'success') {
+                            toastr.success(data.msg);
+                            document.getElementById("callback").reset();
+                        } else if (data.flag == 'error') {
+                            toastr.success(data.msg);
+                        }
+                    }
+                });
+            }
+        });
+
+        $("#visitscheduleform").validate({
+            rules: {
+                name: {
+                    required: true,
+                },
+                email: {
+                    required: true,
+                    email:true
+                },
+                mobile: {
+                    required: true,
+                    digits: true,
+                    maxlength: 10,
+                    minlength: 10
+                },
+                course:{
+                    required:true,
+                }
+            },
+            messages: {
+                name: {
+                    required: 'Enter name',
+                },
+                email: {
+                    required: 'Enter email'
+                },
+                mobile: {
+                    required: 'Enter Mobile',
+                    digits: 'Enter valid mobile'
+                },
+                course:{
+                    required:'Please select course',
+                }
+            },
+            submitHandler: function(form, e) {
+                $('.fa-spin-visit').removeClass('hidden');
                 e.preventDefault();
                 var form = $(form);
                 var actionUrl = form.attr('action');
@@ -45,8 +105,10 @@
                     data: form.serialize(), // serializes the form's elements.
                     success: function(data) {
                         if (data.flag == 'success') {
+                            $('.fa-spin-visit').addClass('hidden');
                             toastr.success(data.msg);
-                            document.getElementById("callback").reset();
+                            document.getElementById("visitscheduleform").reset();
+                            $('#myModal').modal('hide');
                         } else if (data.flag == 'error') {
                             toastr.success(data.msg);
                         }

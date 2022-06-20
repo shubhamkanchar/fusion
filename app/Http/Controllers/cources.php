@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\cources as ModelsCources;
+use App\Models\instructor;
 use Illuminate\Http\Request;
 
 class cources extends Controller
@@ -16,7 +17,8 @@ class cources extends Controller
     public function details(Request $request)
     {
         $course=ModelsCources::find($request->id);
-        return view('details',['course'=>$course]);
+        $instructor = instructor::all();
+        return view('details',['course'=>$course,'instructor'=>$instructor]);
     }
 
 }

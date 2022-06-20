@@ -33,6 +33,8 @@ class NotifyMail extends Mailable
             return $this->view('email.message', ['data' => $this->data])->subject('Message received from '.config('app.name', 'Fusion'));
         } elseif ($this->data['token'] == 'callback') {
             return $this->view('email.request', ['data' => $this->data])->subject('Callback request received');
+        }elseif ($this->data['token'] == 'visit') {
+            return $this->view('email.visit', ['data' => $this->data])->subject('Visit request received');
         }
     }
 }

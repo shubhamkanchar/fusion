@@ -6,9 +6,9 @@
 
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('welcome') }}">
-        <div class="sidebar-brand-icon rotate-n-15">
+        <!-- <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-laugh-wink"></i>
-        </div>
+        </div> -->
         <div class="sidebar-brand-text mx-3">{{ config('app.name', 'Laravel') }}</div>
     </a>
 
@@ -26,9 +26,9 @@
     <hr class="sidebar-divider">
 
     <!-- Heading -->
-    <div class="sidebar-heading">
+    <!-- <div class="sidebar-heading">
         Interface
-    </div>
+    </div> -->
 
     <!-- Nav Item - Utilities Collapse Menu -->
     <li class="nav-item">
@@ -63,6 +63,34 @@
         </div>
     </li>
 
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsethree"
+            aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Instructor</span>
+        </a>
+        <div id="collapsethree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <!-- <h6 class="collapse-header">Add cources</h6> -->
+                <a class="collapse-item" href="{{ route('admin.add_instructor') }}">Add instructor</a>
+                <a class="collapse-item" href="{{ route('admin.instructor_list') }}">Manage instructor</a>
+            </div>
+        </div>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsethree1"
+            aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Request</span>
+        </a>
+        <div id="collapsethree1" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <!-- <h6 class="collapse-header">Add cources</h6> -->
+                <a class="collapse-item" href="{{ route('admin.request_list') }}">Manage Request</a>
+            </div>
+        </div>
+    </li>
     
 
     <!-- Divider -->

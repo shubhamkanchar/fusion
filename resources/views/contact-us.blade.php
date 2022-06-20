@@ -48,7 +48,7 @@
                     <div style="margin-top:10px;" class="row">
                         <div style="padding-top:10px;" class="col-sm-3"><label></label></div>
                         <div class="col-sm-8">
-                            <button type="submit" class="btn btn-success btn-sm">Send Message</button>
+                            <button type="submit" class="btn btn-success btn-sm"><i class="fa fa-circle-o-notch fa-spin hidden mr-2 fa-spin-contact"></i>Send Message</button>
                         </div>
                     </div>
                 </form>
@@ -56,12 +56,9 @@
             <div class="col-sm-6">
                 <div style="margin:50px" class="serv">
                     <h2 style="margin-top:10px;">Address</h2>
-                    Smart Hospital <br>
-                    Daman Street<br>
-                    K.K District<br>
-                    Phone:+91 9159669599<br>
-                    Email:info@smart-eye.in<br>
-                    Website:www.smart-eye.com<br>
+                    Office: 505 , <br>6th Floor Vaishnavi Building,<br> Lane No 2 Near Vikas Mitra Mandal,<br> Karvenagar Pune 411052.<br>
+                    Phone:+91 7498992609<br>
+                    Email:fusionpune1@gmail.com<br>
                 </div>
             </div>
         </div>
@@ -78,7 +75,8 @@
                     required: true,
                 },
                 email: {
-                    required: true
+                    required: true,
+                    email:true
                 },
                 mobile: {
                     required: true,
@@ -106,6 +104,7 @@
                 },
             },
             submitHandler: function(form, e) {
+                $('.fa-spin-contact').removeClass('hidden');
                 e.preventDefault();
                 var form = $(form);
                 var actionUrl = form.attr('action');
@@ -115,6 +114,7 @@
                     url: actionUrl,
                     data: form.serialize(), // serializes the form's elements.
                     success: function(data) {
+                        $('.fa-spin-contact').addClass('hidden');
                         if (data.flag == 'success') {
                             toastr.success(data.msg);
                             document.getElementById("ContactForm").reset();

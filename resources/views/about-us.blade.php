@@ -52,19 +52,19 @@
             <div class="row">
                 <div class="col-sm-3 numb">
                     <h3>12+</h3>
-                    <span>YEARS OF EXPEREANCE</span>
+                    <span>YEARS OF EXPERIENCE</span>
                 </div>
                 <div class="col-sm-3 numb">
-                    <h3>10</h3>
-                    <span>Courses</span>
+                    <h3>{{ App\Models\cources::count() ?? 0}}</h3>
+                    <span>COURSES</span>
                 </div>
                 <div class="col-sm-3 numb">
-                    <h3>15</h3>
+                    <h3>{{ App\Models\instructor::count() ?? 0}}</h3>
                     <span>QUALIFIED STUFF</span>
                 </div>
                 <div class="col-sm-3 numb">
                     <h3>99%</h3>
-                    <span>Satisfaction Rate</span>
+                    <span>SATISFACTION RATE</span>
                 </div>
             </div>
         </div>
@@ -73,69 +73,31 @@
 
 <!-- ################# Our Instructors Starts Here#######################--->
 
+@if(isset($instructor) && count($instructor) > 0)
 <div class="our-instructor">
     <div class="container">
         <div class="session-title row">
             <h2>Our Instructors</h2>
         </div>
         <div class="instruct-row row">
+            @foreach($instructor as $i)
             <div class="col-md-3">
                 <div class="instruct-card">
-                    <img src="{{ url('public/assets/images/team/avatar-2.jpg') }}" alt="">
-                    <h6>Andre Jhon</h6>
-                    <p>Graphic Design</p>
+                    <img src="{{ url('public/uploads/instructor/').'/'.$i->file }}" alt="">
+                    <h6>{{ $i->name }}</h6>
+                    <p>{{ $i->course }}</p>
 
-                    <ul>
+                    <!-- <ul>
                         <li><i class="fab fa-facebook-f"></i></li>
                         <li><i class="fab fa-twitter"></i></li>
                         <li><i class="fab fa-linkedin-in"></i></li>
                         <li><i class="fab fa-pinterest-p"></i></li>
-                    </ul>
+                    </ul> -->
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="instruct-card">
-                    <img src="{{ url('public/assets/images/team/avatar-3.jpg') }}" alt="">
-                    <h6>Ahalkji Jhon</h6>
-                    <p>Graphic Design</p>
-
-                    <ul>
-                        <li><i class="fab fa-facebook-f"></i></li>
-                        <li><i class="fab fa-twitter"></i></li>
-                        <li><i class="fab fa-linkedin-in"></i></li>
-                        <li><i class="fab fa-pinterest-p"></i></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="instruct-card">
-                    <img src="{{ url('public/assets/images/team/avatar-5.jpg') }}" alt="">
-                    <h6>Reniju Sam</h6>
-                    <p>Graphic Design</p>
-
-                    <ul>
-                        <li><i class="fab fa-facebook-f"></i></li>
-                        <li><i class="fab fa-twitter"></i></li>
-                        <li><i class="fab fa-linkedin-in"></i></li>
-                        <li><i class="fab fa-pinterest-p"></i></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="instruct-card">
-                    <img src="{{ url('public/assets/images/team/avatar-4.jpg') }}" alt="">
-                    <h6>Depak Andrw</h6>
-                    <p>Graphic Design</p>
-
-                    <ul>
-                        <li><i class="fab fa-facebook-f"></i></li>
-                        <li><i class="fab fa-twitter"></i></li>
-                        <li><i class="fab fa-linkedin-in"></i></li>
-                        <li><i class="fab fa-pinterest-p"></i></li>
-                    </ul>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </div>
+@endif
 @endsection
