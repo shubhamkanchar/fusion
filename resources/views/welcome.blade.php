@@ -28,7 +28,7 @@
                         <div class="slider-captions">
                             <h1 class="slider-title">Education Learning Course</h1>
                             <p class="slider-text hidden-xs">Get expert advise and Q&A session</p>
-                            <a type="button" data-toggle="modal" data-target="#myModal" class="btn btn-success hidden-xs text-white">Schedule A Visit</a>
+                            <a type="button" data-toggle="modal" data-target="#myModal" class="btn btn-success hidden-xs text-white">Book demo</a>
                         </div>
                     </div>
                 </div>
@@ -94,14 +94,17 @@
                     <div class="cource-det">
                         <h6>{{ $c->name }}</h6>
                         <ul>
-                            <li><i class="fas fa-graduation-cap"></i> Adam Jhon <span>{{ $c->seats }} Seats</span></li>
+                            <li><i class="fas fa-graduation-cap"></i> TRAINER-LED <span>{{ $c->seats }} Seats</span></li>
                             <li><i class="far fa-calendar-plus"></i> {{ $c->duration }} Months</li>
                         </ul>
-                        <div class="text-center"><a href="{{ route('details',['id'=>$c->id]) }}" class="btn btn-success sm-btn">Read more</a></div>
+                        <!-- <div class="text-center"><a href="{{ route('details',['id'=>$c->id]) }}" class="btn btn-success sm-btn">Read more</a></div> -->
                     </div>
                 </div>
             </div>
             @endforeach
+        </div>
+        <div class="text-center mt-4">
+            <a href="{{ route('cources') }}" class="btn btn-primary">View All Courses</a>
         </div>
     </div>
 </div>
@@ -120,8 +123,8 @@
             </div>
             <div class="row">
                 <div class="col-sm-3 numb">
-                    <h3>12+</h3>
-                    <span>YEARS OF EXPERIENCE</span>
+                    <h3>100+</h3>
+                    <span>STUDENTS</span>
                 </div>
                 <div class="col-sm-3 numb">
                     <h3>{{ App\Models\cources::count() ?? 0}}</h3>
@@ -228,4 +231,3 @@
     </div>
 </div>
 @endsection
-

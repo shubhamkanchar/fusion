@@ -18,31 +18,42 @@
 <section class="with-medical">
     <div class="container">
         <div class="row">
-            <div class="col-lg-12 col-md-12 mb-5">
+            <div class="col-lg-6 col-md-12">
+                <img style="width: 100%;" src="{{ url('public/uploads/course/').'/'.$course->file }}" alt="{{ $course->name ?? '' }}">
+            </div>
+            <div class="col-lg-6 col-md-12 mb-5">
                 <h2>What is {{ $course->name ?? '' }} ?</h2>
                 <p>{{ $course->desc ?? '' }}</p>
+                <h4 class="mt-5">Fees : {{ $course->fees }} only</h4>
+                <h4>Duration : {{ $course->duration }} Months</h4>
             </div>
-            <div class="col-lg-6 col-md-12">
-                <img src="{{ url('public/uploads/course/').'/'.$course->file }}" alt="{{ $course->name ?? '' }}">
-            </div>
-            <div class="col-lg-6 col-md-12">
+
+            <div class="col-lg-6 col-md-12 mt-5">
                 <h2>Syllabus</h2>
                 @php $i=1; @endphp
                 @foreach( explode(',',$course->syllabus) as $d )
+                @if($d != '')
                 <p>{{ $i++}}. {{ $d }}</p>
+                @endif
                 @endforeach
             </div>
-            <div class="col-lg-6 col-md-12">
-                <h4>Fees : {{ $course->fees }} only</h4>
+            <!-- <div class="col-lg-6 col-md-12">
+                <h4 class="mt-5">Fees : {{ $course->fees }} only</h4>
                 <h4>Duration : {{ $course->duration }} Months</h4>
-                <h4></h4>
-            </div>
-            <div class="col-lg-6 col-md-12">
-                <h2 class="mt-5">Tools</h2>
-                @php $i=1; @endphp
-                @foreach( explode(',',$course->tools) as $d )
+            </div> -->
+            <div class="col-lg-6 col-md-12 mt-5">
+                <h2>Tools</h2>
+                @php
+                $i=1;
+                $array=explode(',',$course->tools);
+                @endphp
+
+                @foreach($array as $d )
+                @if($d != '')
                 <p>{{ $i++}}. {{ $d }}</p>
+                @endif
                 @endforeach
+
             </div>
         </div>
     </div>
@@ -61,8 +72,8 @@
             </div>
             <div class="row">
                 <div class="col-sm-3 numb">
-                    <h3>12+</h3>
-                    <span>YEARS OF EXPERIENCE</span>
+                    <h3>100+</h3>
+                    <span>STUDENTS</span>
                 </div>
                 <div class="col-sm-3 numb">
                     <h3>{{ App\Models\cources::count() ?? 0}}</h3>
@@ -70,7 +81,7 @@
                 </div>
                 <div class="col-sm-3 numb">
                     <h3>{{ App\Models\instructor::count() ?? 0}}</h3>
-                    <span>QUALIFIED STUFF</span>
+                    <span>QUALIFIED STAFF</span>
                 </div>
                 <div class="col-sm-3 numb">
                     <h3>99%</h3>

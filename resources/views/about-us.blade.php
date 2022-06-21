@@ -34,6 +34,18 @@
                 <p>6. Creating Team work spirit.</p>
                 <p>7. Interview Preparations.</p>
             </div>
+            <div class="col-lg-12 col-md-12 mt-4">
+                <h4>What is Corporate Training?</h4>
+                <p>We defines training as partnering with students in a thought-provoking, challenging and creative process that inspires them to maximize their personal and professional potential. The process of traning often unlocks previously untapped sources of imagination, productivity and leadership quality of both students and trainers. We all have goals we want to reach, challenges we’re striving to overcome and times when we feel stuck. Partnering with a trainer can change your life, setting you on a path to greater personal and professional fulfillment.</p>
+            </div>
+            <div class="col-lg-6 col-md-12 mt-4">
+                <h4>Our Vision</h4>
+                <p>Our vision is to provide optimal, job oriened and real time training.</p>
+            </div>
+            <div class="col-lg-6 col-md-12 mt-4">
+                <h4>Our Mission</h4>
+                <p>Our Mission is to place students in IT industry and make them financially strong, productive and successful.</p>
+            </div>
         </div>
     </div>
 </section>
@@ -51,8 +63,8 @@
             </div>
             <div class="row">
                 <div class="col-sm-3 numb">
-                    <h3>12+</h3>
-                    <span>YEARS OF EXPERIENCE</span>
+                    <h3>100+</h3>
+                    <span>STUDENTS</span>
                 </div>
                 <div class="col-sm-3 numb">
                     <h3>{{ App\Models\cources::count() ?? 0}}</h3>
@@ -60,7 +72,7 @@
                 </div>
                 <div class="col-sm-3 numb">
                     <h3>{{ App\Models\instructor::count() ?? 0}}</h3>
-                    <span>QUALIFIED STUFF</span>
+                    <span>QUALIFIED STAFF</span>
                 </div>
                 <div class="col-sm-3 numb">
                     <h3>99%</h3>

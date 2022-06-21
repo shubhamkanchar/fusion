@@ -15,8 +15,8 @@ class welcomeController extends Controller
 {
     public function index()
     {
-        $batch = batches::where('date', '>=', Carbon::now())->get();
-        $course = cources::all();
+        $batch = batches::where('date', '>=', Carbon::now())->orderBy('date','ASC')->get();
+        $course = cources::whereIn('name',['Software Testing (Manual+ Automation)','Java Development','Python Development'])->get();
         $instructor = instructor ::all();
         return view('welcome', ['batch' => $batch, 'course' => $course,'instructor'=>$instructor]);
     }

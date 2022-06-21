@@ -24,7 +24,7 @@
                     <div class="cource-det">
                         <h6>{{ $c->name }}</h6>
                         <ul>
-                            <li><i class="fas fa-graduation-cap"></i> Adam Jhon <span>{{ $c->seats }} Seats</span></li>
+                            <li><i class="fas fa-graduation-cap"></i> TRAINER-LED <span>{{ $c->seats }} Seats</span></li>
                             <li><i class="far fa-calendar-plus"></i> {{ $c->duration }} Months </li>
                         </ul>
                         <div class="text-center"><a href="{{ route('details',['id'=>$c->id]) }}" class="btn btn-success sm-btn">Read more</a></div>

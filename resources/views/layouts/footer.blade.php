@@ -97,12 +97,12 @@ $course=App\Models\cources::all();
             <div class="col-md-4 tags">
                 <h2>Social Connect</h2>
                 <ul>
-                    <li><a><img style="width:50px" src="{{ url('public/assets/images/Google_plus.png') }}"></a></li>
-                    <li><a><img style="width:50px" src="{{ url('public/assets/images/twitter.png') }}"></a></li>
-                    <li><a target="_blank" href="https://www.facebook.com/111239338082168/posts/130299146176187/"><img style="width:50px" src="{{ url('public/assets/images/facebook.png') }}"></a></li>
+                    <!-- <li><a><img style="width:50px" src="{{ url('public/assets/images/Google_plus.png') }}"></a></li>
+                    <li><a><img style="width:50px" src="{{ url('public/assets/images/twitter.png') }}"></a></li> -->
+                    <li><a target="_blank" href="https://www.facebook.com/111239338082168/posts/pfbid034Vf37amodcvC7bxCQC9onYM5DXxGnnKWRbQGgxgLw4KvLrfU76yxCG8y73FgWV3nl/"><img style="width:50px" src="{{ url('public/assets/images/facebook.png') }}"></a></li>
                     <li><a target="_blank" href="https://api.whatsapp.com/send/?phone={{ env('WHATSAPP_NO') }}&text={{ urlencode('I am intersted in course you provide') }}"><img style="width:50px" src="{{ url('public/assets/images/whatsapp.png') }}"></a></li>
 
-                    <li><a><img style="width:50px" src="{{ url('public/assets/images/youtube.png') }}"></a></li>
+                    <!-- <li><a><img style="width:50px" src="{{ url('public/assets/images/youtube.png') }}"></a></li> -->
                     <li><a target="_blank" href="https://www.instagram.com/p/CZ1-eICPucZ/"><img style="width:50px" src="{{ url('public/assets/images/instagram.png') }}"></a></li>
 
                 </ul>
@@ -142,8 +142,8 @@ $course=App\Models\cources::all();
         <span>
             <a target="_blank" href="https://www.instagram.com/p/CZ1-eICPucZ/"><i class="text-white fab fa-instagram"></i></a>
             <a target="_blank" href="https://api.whatsapp.com/send/?phone={{ env('WHATSAPP_NO') }}&text={{ urlencode('I am intersted in course you provide') }}"><i class="text-white fab fa-whatsapp"></i></a>
-            <a><i class="text-white fab fa-twitter"></i></a>
-            <a target="_blank" href="https://www.facebook.com/111239338082168/posts/130299146176187/"><i class=" text-white fab fa-facebook-f"></i></a>
+            <!-- <a><i class="text-white fab fa-twitter"></i></a> -->
+            <a target="_blank" href="https://www.facebook.com/111239338082168/posts/pfbid034Vf37amodcvC7bxCQC9onYM5DXxGnnKWRbQGgxgLw4KvLrfU76yxCG8y73FgWV3nl/"><i class=" text-white fab fa-facebook-f"></i></a>
         </span>
     </div>
 </div>

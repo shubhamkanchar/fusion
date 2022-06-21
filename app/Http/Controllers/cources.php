@@ -10,7 +10,7 @@ class cources extends Controller
 {
     public function cources(Request $request)
     {
-        $course=ModelsCources::orderBy('created_at','DESC')->paginate(6);
+        $course=ModelsCources::orderBy('created_at','DESC')->paginate();
         return view('cources',['course'=>$course]);
     } 
 
