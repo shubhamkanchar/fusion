@@ -24,7 +24,7 @@
             <div class="col-lg-6 col-md-12 mb-5">
                 <h2>What is {{ $course->name ?? '' }} ?</h2>
                 <p>{{ $course->desc ?? '' }}</p>
-                <h4 class="mt-5">Fees : {{ $course->fees }} only</h4>
+                <!-- <h4 class="mt-5">Fees : {{ $course->fees }} only</h4> -->
                 <h4>Duration : {{ $course->duration }} Months</h4>
             </div>
 

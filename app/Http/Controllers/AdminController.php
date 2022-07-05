@@ -18,7 +18,7 @@ class AdminController extends Controller
         $u_count=User::where('type',0)->count();
         $b_count=batches::count();
         $c_count=cources::count();
-        return view('admin.Home',['r_count'=>$r_count,'u_count'=>$u_count,'b_count'=>$b_count,'c_count'=>$c_count]);
+        return view('admin.home',['r_count'=>$r_count,'u_count'=>$u_count,'b_count'=>$b_count,'c_count'=>$c_count]);
     }
 
     public function add_batch()
