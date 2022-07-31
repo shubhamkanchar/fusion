@@ -103,37 +103,6 @@
 </section>
 
 
-<!-- ################# University Number Starts Here#######################--->
-
-
-<div class="doctor-message">
-    <div class="inner-lay">
-        <div class="container">
-            <div class="row session-title">
-                <h2>{{ config('app.name', 'Laravel') }} in numbers</h2>
-                <p>Our Mission is to place students in IT industry and make them financially strong, productive and successful.</p>
-            </div>
-            <div class="row">
-                <div class="col-sm-3 numb">
-                    <h3>100+</h3>
-                    <span>STUDENTS</span>
-                </div>
-                <div class="col-sm-3 numb">
-                    <h3>{{ App\Models\cources::count() ?? 0}}</h3>
-                    <span>COURSES</span>
-                </div>
-                <div class="col-sm-3 numb">
-                    <h3>{{ App\Models\instructor::count() ?? 0}}</h3>
-                    <span>QUALIFIED STAFF</span>
-                </div>
-                <div class="col-sm-3 numb">
-                    <h3>99%</h3>
-                    <span>SATISFACTION RATE</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
 <!-- ################# Our Instructors Starts Here#######################--->
 
