@@ -21,6 +21,10 @@ class cources extends Model
         'duration',
         'syllabus',
         'tools',
+        'pdf',
+        'pre',
+        'for',
+        'lang',
     ];
 
     public $timestamps = true;

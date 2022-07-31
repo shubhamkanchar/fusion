@@ -92,6 +92,8 @@ class AdminController extends Controller
                 'duration' => 'required',
                 'fees' => 'required',
                 'desc' => 'required',
+                'for' => 'required',
+                'lang' => 'required',
             ]);
 
             $course = cources::where('id',$request->id)->first();
@@ -116,6 +118,26 @@ class AdminController extends Controller
                 $file_name = isset($course->file) ? $course->file : '';
             endif;
 
+            if ($request->file('pdf')) :
+                if (isset($course->pdf) && !empty($course->pdf)) :
+                    if (File::exists(public_path('uploads/pdf') . '/' . $course->pdf)) :
+                        File::delete(public_path('uploads/pdf') . '/' . $course->pdf);
+                    endif;
+                endif;
+    
+                $cover = $request->file('pdf');
+                if ($cover) :
+                    $pdf = time() . '-' . $cover->getClientOriginalName();
+                    $pdf = str_replace(' ', '_', $pdf);
+    
+                    $path = public_path('uploads/pdf');
+                    $cover->move($path, $pdf);
+                    $pdf = $pdf;
+                endif;
+            else :
+                $pdf = isset($course->pdf) ? $course->pdf : '';
+            endif;
+
             cources::where('id',$request->id)->update([
                 'name'=>$request->name,
                 'file'=>$file_name,
@@ -125,6 +147,10 @@ class AdminController extends Controller
                 'desc'=>$request->desc,
                 'tools'=>$request->tools,
                 'syllabus'=>$request->syllabus,
+                'pdf'=>$pdf,
+                'pre'=>$request->pre,
+                'for'=> $request->for,
+                'lang'=>$request->lang
             ]);
 
             return redirect()->route('admin.add_course')->with('success','course updated successfully');
@@ -137,8 +163,12 @@ class AdminController extends Controller
                 'duration' => 'required',
                 'fees' => 'required',
                 'desc' => 'required',
+                'for' => 'required',
+                'lang' => 'required',
+                'pdf'=>'required'
             ]);
 
+            $file_name='';
             if ($request->file('file')) :
                 $cover = $request->file('file');
                 if ($cover) :
@@ -151,6 +181,18 @@ class AdminController extends Controller
                 endif;
             endif;
 
+            $pdf='';
+            if ($request->file('pdf')) :
+                $cover = $request->file('pdf');
+                if ($cover) :
+                    $pdf = time() . '-' . $cover->getClientOriginalName();
+                    $pdf = str_replace(' ', '_', $pdf);
+    
+                    $path = public_path('uploads/pdf');
+                    $cover->move($path, $pdf);
+                    $pdf = $pdf;
+                endif;
+            endif;
             cources::create([
                 'name'=>$request->name,
                 'file'=>$file_name,
@@ -160,6 +202,10 @@ class AdminController extends Controller
                 'desc'=>$request->desc,
                 'tools'=>$request->tools,
                 'syllabus'=>$request->syllabus,
+                'pdf'=>$pdf,
+                'pre'=>$request->pre,
+                'for'=> $request->for,
+                'lang'=>$request->lang
             ]);
 
             return redirect()->route('admin.add_course')->with('success','course created successfully');

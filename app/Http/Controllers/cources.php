@@ -21,4 +21,10 @@ class cources extends Controller
         return view('details',['course'=>$course,'instructor'=>$instructor]);
     }
 
+    public function download_pdf(Request $request)
+    {
+        $file=public_path('uploads/pdf').'/'.$request->file;
+        $course=str_replace(" ", "_", $request->course);
+        return response()->download($file, $course.".pdf");
+    }
 }

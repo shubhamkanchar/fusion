@@ -27,6 +27,7 @@
                 <div style="margin:50px" class="serv">
                     <h2 style="margin-top:10px;">Contact Number</h2>
                     <p>+91 7498992609</p>
+                    <p>+91 8380952885</p>
                 </div>
             </div>
             <div class="col-sm-4 text-center">

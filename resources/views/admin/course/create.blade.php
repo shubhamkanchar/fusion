@@ -17,9 +17,23 @@
                     @enderror
                 </div>
                 <div class="form-group row">
-                    <label for="name">Course image</label>
+                    <label for="file">Course image</label>
                     <input class="form-control @error('file')  is-invalid @enderror" type="file" name="file" id="file" value="{{ $data['file'] ?? ''}}">
                     @error('file')
+                    <span class="is-invalid">{{ $message }}</span>
+                    @enderror
+                </div>
+                <div class="form-group row">
+                    <label for="pdf">Course PDF</label>
+                    <input class="form-control @error('pdf')  is-invalid @enderror" type="file" name="pdf" id="pdf" value="{{ $data['pdf'] ?? ''}}">
+                    @error('pdf')
+                    <span class="is-invalid">{{ $message }}</span>
+                    @enderror
+                </div>
+                <div class="form-group row">
+                    <label for="lang">Course language</label>
+                    <input class="form-control @error('lang')  is-invalid @enderror" type="lang" name="lang" id="lang" value="{{ $data['lang'] ?? ''}}">
+                    @error('lang')
                     <span class="is-invalid">{{ $message }}</span>
                     @enderror
                 </div>
@@ -54,10 +68,25 @@
                     @enderror
                 </div>
                 <div class="form-group row">
+                    <label for="for">Who this course is for</label>
+                    <textarea class="form-control  @error('for')  is-invalid @enderror" name="for" id="for">{{ $data['for'] ?? ''}}</textarea>
+                    @error('for')
+                    <span class="is-invalid">{{ $message }}</span>
+                    @enderror
+                </div>
+                <div class="form-group row">
                     <label for="syllabus">Syllabus</label>
                     <textarea class="form-control  @error('syllabus')  is-invalid @enderror" name="syllabus" id="syllabus">{{ $data['syllabus'] ?? ''}}</textarea>
                     <small class="is-invalid">Note : Enter comma ( , ) seperated value</small>
                     @error('syllabus')
+                    <span class="is-invalid">{{ $message }}</span>
+                    @enderror
+                </div>
+                <div class="form-group row">
+                    <label for="pre">Requirement / Prerequisite</label>
+                    <textarea class="form-control  @error('pre')  is-invalid @enderror" name="pre" id="pre">{{ $data['pre'] ?? ''}}</textarea>
+                    <small class="is-invalid">Note : Enter comma ( , ) seperated value</small>
+                    @error('pre')
                     <span class="is-invalid">{{ $message }}</span>
                     @enderror
                 </div>

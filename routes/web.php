@@ -54,6 +54,7 @@ Route::post('/request_mail', [welcomeController::class, 'mail'])->name('request_
 route::controller(cources::class)->group(function(){
     route::get('cources','cources')->name('cources');
     route::get('details/{id}','details')->name('details');
+    route::get('pdf/{file}/{course}','download_pdf')->name('download_pdf');
 });
 
 

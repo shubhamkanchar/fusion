@@ -6,7 +6,7 @@
                 <div class="col-lg-6 col-md-12 left-item">
                     <ul>
                         <li><i class="fas fa-envelope-square"></i> fusionpune1@gmail.com</li>
-                        <li><i class="fas fa-phone-square"></i> +91 7498992609</li>
+                        <li><i class="fas fa-phone-square"></i> +91 7498992609 , +91 8380952885</li>
                     </ul>
                 </div>
                 <div class="col-lg-6 d-none d-lg-block right-item">
@@ -22,7 +22,7 @@
         </div>
     </div>
     <div id="nav-head" class="header-nav">
-        <div class="container" style="padding: 21px 15px;">
+        <div class="container">
             <div class="row">
                 <div class="col-md-4 col-sm-11 nav-img" style="width:90%">
                     <h3><a href="{{ route('welcome') }}"><img src="{{ url('public/assets/images/logo.png') }}"></a></h3>

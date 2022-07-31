@@ -19,28 +19,71 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-6 col-md-12">
-                <img style="width: 100%;" src="{{ url('public/uploads/course/').'/'.$course->file }}" alt="{{ $course->name ?? '' }}">
-            </div>
-            <div class="col-lg-6 col-md-12 mt-5">
-                <h2>What is {{ $course->name ?? '' }} ?</h2>
+                <h2>Course Name : {{ $course->name ?? '' }}</h2>
+                
+                <h4 class="mt-3">Course Description :</h4> 
                 <p>{{ $course->desc ?? '' }}</p>
-                <h4 class="mt-3">Fees : {{ $course->fees }} only</h4>
-                <h4>Duration : {{ $course->duration }} Months</h4>
-            </div>
-
-            <div class="col-lg-6 col-md-12 mt-3">
-                <h2>Syllabus</h2>
+                
+                <h4 class="mt-3">Language : </h4> 
+                <p>{{ $course->lang }}</p>
+                
+                <h4 class="mt-3">Requirement / Prerequisite</h4>
                 @php $i=1; @endphp
-                @foreach( explode(',',$course->syllabus) as $d )
+                @foreach( explode(',',$course->pre) as $d )
+                @if($d != '')
+                <p>{{ $i++}}. {{ $d }}</p>
+                @endif
+                @endforeach
+
+                <h4 class="mt-3">Who this course id for :</h4> 
+                <p>{{ $course->for }}</p>
+
+                <h4 class="mt-3">Tools</h4>
+                @php
+                $i=1;
+                $array=explode(',',$course->tools);
+                @endphp
+
+                @foreach($array as $d )
                 @if($d != '')
                 <p>{{ $i++}}. {{ $d }}</p>
                 @endif
                 @endforeach
             </div>
-            <!-- <div class="col-lg-6 col-md-12">
+            <div class="col-lg-6 col-md-12">
+                <img style="width: 100%;" src="{{ url('public/uploads/course/').'/'.$course->file }}" alt="{{ $course->name ?? '' }}">
+                <h4 class="mt-3">Fees : {{ $course->fees }} only</h4>
+                <h4 class="mt-3">Duration : {{ $course->duration }} Months</h4>
+
+                <h4 class="mt-3">This course includes</h4>
+                @php $i=1; @endphp
+                @foreach( explode(',',$course->pre) as $d )
+                @if($d != '')
+                <p>{{ $i++}}. {{ $d }}</p>
+                @endif
+                @endforeach
+
+                
+
+                @if(!empty($course->pdf))
+                <a class="btn btn-primary mt-3" href="{{ route('download_pdf',['file'=>$course->pdf,'course'=>$course->name]) }}">Download syllabus</a>
+                @endif
+            </div>
+            
+            <!-- <div class="col-lg-6 col-md-12 mt-3">
+                <h2>Requirement / Prerequisite</h2>
+                @php $i=1; @endphp
+                @foreach( explode(',',$course->pre) as $d )
+                @if($d != '')
+                <p>{{ $i++}}. {{ $d }}</p>
+                @endif
+                @endforeach
+            </div>
+            <div class="col-lg-6 col-md-12">
                 <h4 class="mt-5">Fees : {{ $course->fees }} only</h4>
                 <h4>Duration : {{ $course->duration }} Months</h4>
-            </div> -->
+            </div>
+           
             <div class="col-lg-6 col-md-12 mt-2">
                 <h2>Tools</h2>
                 @php
@@ -54,7 +97,7 @@
                 @endif
                 @endforeach
 
-            </div>
+            </div> -->
         </div>
     </div>
 </section>

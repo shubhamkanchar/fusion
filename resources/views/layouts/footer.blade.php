@@ -77,7 +77,7 @@ $course=App\Models\cources::all();
                         <i class="fas fa-mobile-alt"></i>
                     </div>
                     <div class="addet">
-                        +91 7498992609
+                        +91 7498992609 , +91 8380952885
                     </div>
                 </div>
             </div>
