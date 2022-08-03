@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\batches;
 use App\Models\cources;
 use App\Models\instructor;
+use App\Models\pdfs;
 use App\Models\request as ModelsRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -118,24 +119,26 @@ class AdminController extends Controller
                 $file_name = isset($course->file) ? $course->file : '';
             endif;
 
+            $pdf='';
             if ($request->file('pdf')) :
-                if (isset($course->pdf) && !empty($course->pdf)) :
-                    if (File::exists(public_path('uploads/pdf') . '/' . $course->pdf)) :
-                        File::delete(public_path('uploads/pdf') . '/' . $course->pdf);
+                $files=$request->file('pdf');
+                foreach($files as $f){
+                    $cover = $f;
+                    if ($cover) :
+                        $pdf = time() . '-' . $cover->getClientOriginalName();
+                        $pdf = str_replace(' ', '_', $pdf);
+        
+                        $path = public_path('uploads/pdf');
+                        $cover->move($path, $pdf);
+                        $pdf = $pdf;
+
+                        pdfs::create([
+                            'course_id'=>$course->id,
+                            'name'=>$cover->getClientOriginalName(),
+                            'file'=>$pdf,
+                        ]);
                     endif;
-                endif;
-    
-                $cover = $request->file('pdf');
-                if ($cover) :
-                    $pdf = time() . '-' . $cover->getClientOriginalName();
-                    $pdf = str_replace(' ', '_', $pdf);
-    
-                    $path = public_path('uploads/pdf');
-                    $cover->move($path, $pdf);
-                    $pdf = $pdf;
-                endif;
-            else :
-                $pdf = isset($course->pdf) ? $course->pdf : '';
+                }
             endif;
 
             cources::where('id',$request->id)->update([
@@ -181,19 +184,8 @@ class AdminController extends Controller
                 endif;
             endif;
 
-            $pdf='';
-            if ($request->file('pdf')) :
-                $cover = $request->file('pdf');
-                if ($cover) :
-                    $pdf = time() . '-' . $cover->getClientOriginalName();
-                    $pdf = str_replace(' ', '_', $pdf);
-    
-                    $path = public_path('uploads/pdf');
-                    $cover->move($path, $pdf);
-                    $pdf = $pdf;
-                endif;
-            endif;
-            cources::create([
+            
+            $course=cources::create([
                 'name'=>$request->name,
                 'file'=>$file_name,
                 'seats'=>$request->seats,
@@ -202,11 +194,32 @@ class AdminController extends Controller
                 'desc'=>$request->desc,
                 'tools'=>$request->tools,
                 'syllabus'=>$request->syllabus,
-                'pdf'=>$pdf,
                 'pre'=>$request->pre,
                 'for'=> $request->for,
                 'lang'=>$request->lang
             ]);
+
+            $pdf='';
+            if ($request->file('pdf')) :
+                $files=$request->file('pdf');
+                foreach($files as $f){
+                    $cover = $f;
+                    if ($cover) :
+                        $pdf = time() . '-' . $cover->getClientOriginalName();
+                        $pdf = str_replace(' ', '_', $pdf);
+        
+                        $path = public_path('uploads/pdf');
+                        $cover->move($path, $pdf);
+                        $pdf = $pdf;
+
+                        pdfs::create([
+                            'course_id'=>$course->id,
+                            'name'=>$cover->getClientOriginalName(),
+                            'file'=>$pdf,
+                        ]);
+                    endif;
+                }
+            endif;
 
             return redirect()->route('admin.add_course')->with('success','course created successfully');
         }
@@ -327,7 +340,7 @@ class AdminController extends Controller
 
     public function request_list()
     {
-        $data=ModelsRequest::all();
+        $data=ModelsRequest::orderBy('created_at','desc')->get();
         return view('admin.request.list',['data'=>$data]);
     }
 
@@ -342,5 +355,17 @@ class AdminController extends Controller
     {
         ModelsRequest::where('id',$request->id)->delete();
         return redirect()->route('admin.request_list')->with('success','instructor Deleted successfully');
+    }
+
+    public function delete_pdf(Request $request)
+    {
+        $pdf=pdfs::find($request->id);
+        if($pdf){
+            if (File::exists(public_path('uploads/pdf') . '/' . $pdf->file)) :
+                File::delete(public_path('uploads/pdf') . '/' . $pdf->file);
+            endif;
+        }
+        pdfs::where('id',$request->id)->delete();
+        return redirect()->back()->with('success',$pdf->name.' Deleted successfully');
     }
 }

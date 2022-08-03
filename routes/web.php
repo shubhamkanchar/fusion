@@ -96,6 +96,7 @@ Route::middleware(['auth', 'user-access:admin','verified'])->prefix('admin')->na
 
     Route::get('/request/list', [AdminController::class, 'request_list'])->name('request_list');
     Route::get('/request/delete/{id}', [AdminController::class, 'request_delete'])->name('request_delete');
+    route::get('pdf/{id}',[AdminController::class, 'delete_pdf'])->name('delete_pdf');
 });
 
 Route::middleware(['auth', 'user-access:manager','verified'])->prefix('manager')->name('manager.')->group(function () {

@@ -27,7 +27,7 @@
                         <td>{{ $d->duration }}</td>
                         <td>
                             <a href="{{ route('admin.update_course',['id'=>$d->id]) }}" class="btn btn-primary" >Edit</a>
-                            <!-- <a href="{{ route('admin.course_delete',['id'=>$d->id]) }}" class="btn btn-danger" >Delete</a> -->
+                            <a href="{{ route('admin.course_delete',['id'=>$d->id]) }}" class="btn btn-danger" >Delete</a>
                         </td>
                     </tr>
                     @endforeach

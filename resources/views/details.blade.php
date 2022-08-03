@@ -21,7 +21,7 @@
             <div class="col-lg-6 col-md-12">
                 <h2>Course Name : {{ $course->name ?? '' }}</h2>
                 
-                <h4 class="mt-3">Course Description :</h4> 
+                <h4 class="mt-3">Overview :</h4> 
                 <p>{{ $course->desc ?? '' }}</p>
                 
                 <h4 class="mt-3">Language : </h4> 
@@ -35,8 +35,17 @@
                 @endif
                 @endforeach
 
-                <h4 class="mt-3">Who this course id for :</h4> 
-                <p>{{ $course->for }}</p>
+                <h4 class="mt-3">Who This Course Is For :</h4> 
+                @php
+                $i=1;
+                $array=explode(',',$course->for);
+                @endphp
+
+                @foreach($array as $d )
+                @if($d != '')
+                <p>{{ $i++}}. {{ $d }}</p>
+                @endif
+                @endforeach
 
                 <h4 class="mt-3">Tools</h4>
                 @php
@@ -55,18 +64,22 @@
                 <h4 class="mt-3">Fees : {{ $course->fees }} only</h4>
                 <h4 class="mt-3">Duration : {{ $course->duration }} Months</h4>
 
-                <h4 class="mt-3">This course includes</h4>
+                <h4 class="mt-3">This Course Includes</h4>
                 @php $i=1; @endphp
-                @foreach( explode(',',$course->pre) as $d )
+                @foreach( explode(',',$course->syllabus) as $d )
                 @if($d != '')
                 <p>{{ $i++}}. {{ $d }}</p>
                 @endif
                 @endforeach
 
                 
-
-                @if(!empty($course->pdf))
-                <a class="btn btn-primary mt-3" href="{{ route('download_pdf',['file'=>$course->pdf,'course'=>$course->name]) }}">Download syllabus</a>
+                @php
+                $pdfs=App\Models\pdfs::where('course_id',$course->id)->get()
+                @endphp
+                @if(count($pdfs) > 0)
+                    @foreach($pdfs as $pd)
+                    <a class="btn btn-primary mt-3" href="{{ route('download_pdf',['file'=>$pd->file,'course'=>str_replace('.pdf','',$pd->name)]) }}">{{ $pd->name }}</a>
+                    @endforeach
                 @endif
             </div>
             

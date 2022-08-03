@@ -25,11 +25,25 @@
                 </div>
                 <div class="form-group row">
                     <label for="pdf">Course PDF</label>
-                    <input class="form-control @error('pdf')  is-invalid @enderror" type="file" name="pdf" id="pdf" value="{{ $data['pdf'] ?? ''}}">
+                    <input multiple class="form-control @error('pdf')  is-invalid @enderror" type="file" name="pdf[]" id="pdf" value="{{ $data['pdf'] ?? ''}}">
                     @error('pdf')
                     <span class="is-invalid">{{ $message }}</span>
                     @enderror
                 </div>
+                
+                @if(isset($data) && !empty($data))
+                <div class="form-group row">
+                @php
+                $pdfs=App\Models\pdfs::where('course_id',$data->id)->get()
+                @endphp
+                    @if(count($pdfs) > 0)
+                        @foreach($pdfs as $pd)
+                        <a class="btn btn-danger mt-3 mr-3" href="{{ route('admin.delete_pdf',['id'=>$pd->id]) }}">{{ $pd->name }}</a>
+                        @endforeach
+                    @endif
+                </div>
+                @endif 
+
                 <div class="form-group row">
                     <label for="lang">Course language</label>
                     <input class="form-control @error('lang')  is-invalid @enderror" type="lang" name="lang" id="lang" value="{{ $data['lang'] ?? ''}}">
@@ -70,6 +84,7 @@
                 <div class="form-group row">
                     <label for="for">Who this course is for</label>
                     <textarea class="form-control  @error('for')  is-invalid @enderror" name="for" id="for">{{ $data['for'] ?? ''}}</textarea>
+                    <small class="is-invalid">Note : Enter comma ( , ) seperated value</small>
                     @error('for')
                     <span class="is-invalid">{{ $message }}</span>
                     @enderror
@@ -102,6 +117,7 @@
                     <button class="btn btn-primary" type="submit">{{ request()->id ? 'Update Course' : 'Add Course' }}</button>
                 </div>
             </form>
+             
         </div>
     </div>
 </div>

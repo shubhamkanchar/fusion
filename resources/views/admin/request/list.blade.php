@@ -28,8 +28,8 @@
                         <td>{{ $d->course }}</td>
                         <td>{{ $d->message }}</td>
                         <td>
-                            <a href="{{ route('admin.update_instructor',['id'=>$d->id]) }}" class="btn btn-primary" >Edit</a>
-                            <a href="{{ route('admin.instructor_delete',['id'=>$d->id]) }}" class="btn btn-danger" >Delete</a>
+                            <!-- <a href="{{ route('admin.update_instructor',['id'=>$d->id]) }}" class="btn btn-primary" >Edit</a> -->
+                            <a href="{{ route('admin.request_delete',['id'=>$d->id]) }}" class="btn btn-danger" >Delete</a>
                         </td>
                     </tr>
                     @endforeach
