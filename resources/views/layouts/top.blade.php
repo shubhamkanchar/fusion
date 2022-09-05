@@ -9,7 +9,6 @@
 <link rel="stylesheet" href="{{ url('public/assets/plugins/slider/css/owl.theme.default.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ url('public/assets/css/style.css') }}" />
 <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
     .error {
         color: red;

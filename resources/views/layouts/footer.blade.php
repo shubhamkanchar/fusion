@@ -61,7 +61,7 @@ $course=App\Models\cources::all();
                         <i class="fas fa-map-marker-alt"></i>
                     </div>
                     <div class="addet">
-                        Office: 505 , 6th Floor Vaishnavi Building Lane No 2 Near Vikas Mitra Mandal Karvenagar Pune 411052
+                    Office 101, 01st Floor, Stellar Spaces, Kharadi South Main Road, opp. Zensar, IT Park, Kharadi, Pune, Maharashtra 411014
                     </div>
                 </div>
                 <div class="foot-address">

@@ -20,7 +20,7 @@
             <div class="col-sm-4 text-center">
                 <div style="margin:50px" class="serv">
                     <h2 style="margin-top:10px;">Address</h2>
-                    Office: 505 , <br>6th Floor Vaishnavi Building,<br> Lane No 2 Near Vikas Mitra Mandal,<br> Karvenagar Pune 411052.<br>
+                    Office 101, 01st Floor, Stellar Spaces, Kharadi South Main Road, opp. Zensar, IT Park, Kharadi, Pune, Maharashtra 411014
                 </div>
             </div>
             <div class="col-sm-4 text-center">
@@ -38,8 +38,7 @@
             </div>
             <div class="col-sm-6 mt-5">
                 <div style="margin-top:0px;" class="row no-margin">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3783.8902346910813!2d73.81871191400049!3d18.48863052493224!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bfe631fc9f7f%3A0x40bae74e7709affa!2sfusionpune!5e0!3m2!1sen!2sin!4v1648118236008!5m2!1sen!2sin" style='width:100%' ; height="610" style="border:0;" allowfullscreen="" loading="lazy">
-                    </iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d867.1463250800094!2d73.9404905458347!3d18.550636051084744!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c399308c4df7%3A0x56a3dd07e2356fa1!2sStellar%20Spaces!5e0!3m2!1sen!2sin!4v1662384040653!5m2!1sen!2sin" width="600" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
             <div class="col-sm-6 mt-5">
