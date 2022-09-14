@@ -69,7 +69,7 @@ $course=App\Models\cources::all();
                         <i class="far fa-envelope-open"></i>
                     </div>
                     <div class="addet">
-                        fusionpune1@gmail.com
+                        inquiry@fusion-institute.com
                     </div>
                 </div>
                 <div class="foot-address">

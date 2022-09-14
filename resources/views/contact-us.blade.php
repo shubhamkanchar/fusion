@@ -33,7 +33,7 @@
             <div class="col-sm-4 text-center">
                 <div style="margin:50px" class="serv">
                     <h2 style="margin-top:10px;">Email Address</h2>
-                    <p>fusionpune1@gmail.com</p>
+                    <p>inquiry@fusion-institute.com</p>
                 </div>
             </div>
             <div class="col-sm-6 mt-5">

@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-lg-6 col-md-12 left-item">
                     <ul>
-                        <li><i class="fas fa-envelope-square"></i> fusionpune1@gmail.com</li>
+                        <li><i class="fas fa-envelope-square"></i> inquiry@fusion-institute.com</li>
                         <li><i class="fas fa-phone-square"></i> +91 7498992609 , +91 8380952885</li>
                     </ul>
                 </div>

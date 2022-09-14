@@ -41,7 +41,7 @@ class welcomeController extends Controller
             'type'=>$request->token,
         ]);
 
-        Mail::to('fusionpune1@gmail.com')->send(new NotifyMail($data));
+        Mail::to('inquiry@fusion-institute.com')->send(new NotifyMail($data));
 
         if (Mail::failures()) {
             return response()->json([
