@@ -33,4 +33,11 @@
     header .header-nav .nav-item ul li {
         padding: 30px 15px;
     }
+
+    .blog-card .date-box {
+        border: 1px solid #43cb89;
+        padding: 0 !important;
+        text-align: center;
+        word-wrap: break-word;
+    }
 </style>
