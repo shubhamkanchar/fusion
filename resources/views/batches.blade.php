@@ -19,14 +19,14 @@
                 <h3>Upcoming Batches</h3>
                 @foreach($batch as $b)
                 <div class="blog-card row">
-                    <div class="col-2">
+                    <div class="col-3">
                         <div class="date-box">
                             <span>{{ date_format(date_create($b->date),"F") }}</span>
                             <p>{{ date_format(date_create($b->date),"d") }}</p>
                             <small>{{ date_format(date_create($b->date),"Y") }}</small>
                         </div>
                     </div>
-                    <div class="col-10 setv">
+                    <div class="col-9 setv">
                         <h4>{{ $b->name }}</h4>
                         <ul>
                             <li>{{ date('h:i a', strtotime($b->time)); }}</li>
@@ -40,14 +40,14 @@
             <h3>Ongoing Batches</h3>
                 @foreach($onbatch as $b)
                 <div class="blog-card row">
-                    <div class="col-2">
+                    <div class="col-3">
                         <div class="date-box">
                             <span>{{ date_format(date_create($b->date),"F") }}</span>
                             <p>{{ date_format(date_create($b->date),"d") }}</p>
                             <small>{{ date_format(date_create($b->date),"Y") }}</small>
                         </div>
                     </div>
-                    <div class="col-10 setv">
+                    <div class="col-9 setv">
                         <h4>{{ $b->name }}</h4>
                         <ul>
                             <li>{{ date('h:i a', strtotime($b->time)); }}</li>
