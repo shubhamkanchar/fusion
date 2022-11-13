@@ -6,7 +6,7 @@
         <div class="row">
             <h2>{{ $course->name ?? '' }}</h2>
             <ul>
-                <li> <a href="#"><i class="fas fa-home"></i> Home</a></li>
+                <li> <a href="{{ route('welcome') }}"><i class="fas fa-home"></i> Home</a></li>
                 <li><i class="fas fa-angle-double-right"></i> {{ $course->name ?? '' }}</li>
             </ul>
         </div>
