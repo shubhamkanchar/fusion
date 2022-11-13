@@ -2,7 +2,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title> {{ config('app.name', 'Laravel') }}</title>
 
-<link rel="shortcut icon" href="{{ url('public/assets/images/fav.jpg') }}">
+<!-- <link rel="shortcut icon" href="{{ url('public/assets/images/fav.jpg') }}"> -->
+<link rel="icon" type="image/x-icon" href="{{ url('public/favicon.ico') }}">
 <link rel="stylesheet" href="{{ url('public/assets/css/bootstrap.min.css') }}">
 <link rel="stylesheet" href="{{ url('public/assets/css/fontawsom-all.min.css') }}">
 <link rel="stylesheet" href="{{ url('public/assets/plugins/slider/css/owl.carousel.min.css') }}">

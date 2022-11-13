@@ -17,7 +17,7 @@
   @include('layouts.footer')
   @include('layouts.bottom')
   @yield('jspage')
-  <script src="//code.tidio.co/zcqzrqtddnuexrgqkmcwbfzv06gzkos1.js" async></script>
+  <script src="//code.tidio.co/g0pmgzav3pnpdcwzfhdb7miljjkfzhew.js" async></script>
 </body>
 
 </html>
