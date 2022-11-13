@@ -38,7 +38,7 @@
                         <li><a href="{{ route('batches') }}">Batches</a></li>
                         <!-- <li><a href="{{ route('gallery') }}">Gallery</a></li> -->
                         <li><a href="{{ route('contact_us') }}">Contact Us</a></li>
-                        <li><a class="btn btn-primary btn-sm" href="{{ route('register') }}">Join Today</a></li>
+                        <li><a class="btn btn-primary btn-sm" href="{{ route('register') }}">Register</a></li>
                         <li><a class="btn btn-primary btn-sm text-white" data-toggle="modal" data-target="#myModal">Book demo</a></li>
                     </ul>
                 </div>

@@ -49,7 +49,7 @@
                     <div class="form-group row">
                         <div class="col-sm-12">
                             <label>Enter Name :</label>
-                            <input type="text" placeholder="Enter Name" name="name" class="form-control input-sm">
+                            <input type="text" placeholder="Enter Name" name="name" class="form-control input-sm" onkeydown="return /[a-zåäö ]/i.test(event.key)">
                         </div>
                     </div>
                     <div class="form-group row">
@@ -61,7 +61,7 @@
                     <div class="form-group row">
                         <div class="col-sm-12">
                             <label>Mobile Number:</label>
-                            <input type="text" name="mobile" placeholder="Enter Mobile Number" class="form-control input-sm">
+                            <input type="number" name="mobile" placeholder="Enter Mobile Number" class="form-control input-sm">
                         </div>
                     </div>
                     <div class="form-group row">

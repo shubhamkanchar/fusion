@@ -21,7 +21,7 @@ $course=App\Models\cources::all();
                         <h2 style="font-size:18px">Contact Form</h2>
                         <div class="row form-group">
                             <label> Name :</label>
-                            <input type="text" placeholder="Enter Name" name="name" class="form-control input-sm">
+                            <input type="text" placeholder="Enter Name" name="name" class="form-control input-sm" onkeydown="return /[a-zåäö ]/i.test(event.key)">
                         </div>
                         <div class="form-group row">
                             <label>Email Address :</label>
@@ -87,7 +87,7 @@ $course=App\Models\cources::all();
                 <ul>
                     <li><a href="{{ route('welcome') }}"><i class="fas fa-angle-double-right"></i>Home</a></li>
                     <li><a href="{{ route('about_us') }}"><i class="fas fa-angle-double-right"></i>About Us</a></li>
-                    <li><a href="{{ route('cources') }}"><i class="fas fa-angle-double-right"></i>Cources</a></li>
+                    <li><a href="{{ route('cources') }}"><i class="fas fa-angle-double-right"></i>Courses</a></li>
                     <li><a href="{{ route('batches') }}"><i class="fas fa-angle-double-right"></i>Batches</a></li>
                     <li><a href="{{ route('gallery') }}"><i class="fas fa-angle-double-right"></i>Gallery</a></li>
                     <li><a href="{{ route('contact_us') }}"><i class="fas fa-angle-double-right"></i>Contact Us</a></li>
@@ -115,7 +115,7 @@ $course=App\Models\cources::all();
                     <input type="hidden" name="token" value="callback">
                     <div class="row">
                         <label>Enter Name :</label>
-                        <div class="col-sm-12"><input type="text" placeholder="Enter Name" name="name" class="form-control input-sm"></div>
+                        <div class="col-sm-12"><input type="text" placeholder="Enter Name" name="name" class="form-control input-sm" onkeydown="return /[a-zåäö ]/i.test(event.key)"></div>
                     </div>
                     <div class="row">
                         <label>Email Address :</label>

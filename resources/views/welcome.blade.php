@@ -123,7 +123,7 @@
             </div>
             <div class="row">
                 <div class="col-sm-3 numb">
-                    <h3>100+</h3>
+                    <h3>1500+</h3>
                     <span>STUDENTS</span>
                 </div>
                 <div class="col-sm-3 numb">
@@ -131,7 +131,8 @@
                     <span>COURSES</span>
                 </div>
                 <div class="col-sm-3 numb">
-                    <h3>{{ App\Models\instructor::count() ?? 0}}</h3>
+                    <!-- <h3>{{ App\Models\instructor::count() ?? 0}}</h3> -->
+                    <h3>13</h3>
                     <span>QUALIFIED STAFF</span>
                 </div>
                 <div class="col-sm-3 numb">
