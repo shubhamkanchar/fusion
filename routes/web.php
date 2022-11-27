@@ -8,6 +8,7 @@ use App\Http\Controllers\contactus;
 use App\Http\Controllers\cources;
 use App\Http\Controllers\gallery;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Manager;
 use App\Http\Controllers\welcomeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -96,11 +97,15 @@ Route::middleware(['auth', 'user-access:admin','verified'])->prefix('admin')->na
 
     Route::get('/request/list', [AdminController::class, 'request_list'])->name('request_list');
     Route::get('/request/delete/{id}', [AdminController::class, 'request_delete'])->name('request_delete');
+    Route::get('/request/update/{id}', [AdminController::class, 'request_update'])->name('request_update');
     route::get('pdf/{id}',[AdminController::class, 'delete_pdf'])->name('delete_pdf');
 });
 
 Route::middleware(['auth', 'user-access:manager','verified'])->prefix('manager')->name('manager.')->group(function () {
-    Route::get('/home', [HomeController::class, 'index'])->name('home');
+    Route::get('/home', [Manager::class, 'index'])->name('home');
+
+    Route::get('/request/list', [Manager::class, 'request_list'])->name('request_list');
+    Route::get('/request/update/{id}', [Manager::class, 'request_update'])->name('request_update');
 });
 
 Route::middleware(['auth', 'user-access:user','verified'])->prefix('user')->name('user.')->group(function () {

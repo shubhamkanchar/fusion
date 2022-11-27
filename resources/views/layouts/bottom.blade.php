@@ -21,6 +21,9 @@
                     digits: true,
                     maxlength: 10,
                     minlength: 10
+                },
+                course:{
+                    required:true,
                 }
             },
             messages: {
@@ -33,6 +36,9 @@
                 mobile: {
                     required: 'Enter Mobile',
                     digits: 'Enter valid mobile'
+                },
+                course:{
+                    required:'Please select course',
                 }
 
             },

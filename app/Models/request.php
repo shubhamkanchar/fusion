@@ -22,5 +22,10 @@ class request extends Model
         'status'
     ];
 
+    public function getStatusAttribute($value)
+    {
+        return $value == 0 ? 'New' : 'Completed';
+    }
+
     public $timestamps = true;
 }

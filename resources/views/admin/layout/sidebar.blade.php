@@ -13,8 +13,9 @@
     </a>
 
     <!-- Divider -->
-    <hr class="sidebar-divider my-0">
 
+    <hr class="sidebar-divider my-0">
+    @if(auth()->user()->type == 'admin')
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
         <a class="nav-link" href="{{ route('admin.home') }}">
@@ -91,8 +92,28 @@
             </div>
         </div>
     </li>
-    
+    @elseif(auth()->user()->type == 'manager')
 
+    <li class="nav-item active">
+        <a class="nav-link" href="{{ route('manager.home') }}">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Dashboard</span></a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsethree1"
+            aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Request</span>
+        </a>
+        <div id="collapsethree1" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <!-- <h6 class="collapse-header">Add cources</h6> -->
+                <a class="collapse-item" href="{{ route('manager.request_list') }}">Manage Request</a>
+            </div>
+        </div>
+    </li>
+    @endif
     <!-- Divider -->
     <!-- <hr class="sidebar-divider"> -->
 

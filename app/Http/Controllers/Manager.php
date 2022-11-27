@@ -11,13 +11,8 @@ use App\Models\request as ModelsRequest;
 use App\Models\User;
 use Illuminate\Support\Facades\File;
 
-class HomeController extends Controller
+class Manager extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
     public function __construct()
     {
         $this->middleware('auth');
@@ -31,10 +26,9 @@ class HomeController extends Controller
     public function index()
     {
         $r_count=ModelsRequest::count();
-        $u_count=User::where('type',0)->count();
-        $b_count=batches::count();
-        $c_count=cources::count();
-        return view('manager.home',['r_count'=>$r_count,'u_count'=>$u_count,'b_count'=>$b_count,'c_count'=>$c_count]);
+        $p_count=ModelsRequest::where('status',0)->count();
+        $c_count=ModelsRequest::where('status',1)->count();
+        return view('manager.home',['r_count'=>$r_count,'p_count'=>$p_count,'c_count'=>$c_count]);
     }
   
     /**
@@ -42,8 +36,16 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function managerHome()
+
+    public function request_list()
     {
-        return view('managerHome');
+        $data=ModelsRequest::orderBy('created_at','desc')->get();
+        return view('admin.request.list',['data'=>$data]);
+    }
+
+    public function request_update(Request $request)
+    {
+        ModelsRequest::where('id',$request->id)->update(['status'=>1]);
+        return redirect()->route('manager.request_list')->with('success','request updated successfully');
     }
 }

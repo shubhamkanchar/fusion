@@ -357,6 +357,12 @@ class AdminController extends Controller
         return redirect()->route('admin.request_list')->with('success','instructor Deleted successfully');
     }
 
+    public function request_update(Request $request)
+    {
+        ModelsRequest::where('id',$request->id)->update(['status'=>1]);
+        return redirect()->route('admin.request_list')->with('success','request updated successfully');
+    }
+
     public function delete_pdf(Request $request)
     {
         $pdf=pdfs::find($request->id);

@@ -41,7 +41,7 @@ $course=App\Models\cources::all();
                             </select>
                         </div>
                         <div class="text-center">
-                            <button type="submit" class="btn btn-success"><i class="fa fa-circle-o-notch fa-spin hidden mr-2 fa-spin-visit"></i> Book</button>
+                            <button type="submit" class="btn btn-success"><i class="fa fa-circle-notch fa-spin hidden mr-2 fa-spin-visit"></i> Book</button>
                         </div>
                     </form>
                 </div>
@@ -61,7 +61,7 @@ $course=App\Models\cources::all();
                         <i class="fas fa-map-marker-alt"></i>
                     </div>
                     <div class="addet">
-                    Office 101, 01st Floor, Stellar Spaces, Kharadi South Main Road, opp. Zensar, IT Park, Kharadi, Pune, Maharashtra 411014
+                        Office 101, 01st Floor, Stellar Spaces, Kharadi South Main Road, opp. Zensar, IT Park, Kharadi, Pune, Maharashtra 411014
                     </div>
                 </div>
                 <div class="foot-address">
@@ -126,8 +126,19 @@ $course=App\Models\cources::all();
                         <div class="col-sm-12"><input type="number" name="mobile" placeholder="Enter Mobile Number" class="form-control input-sm"></div>
                     </div>
                     <div class="row">
+                        <label>Select Course you are interested in :</label>
+                        <div class="col-sm-12">
+                        <select name="course" rows="5" placeholder="Enter select course" class="form-control input-sm">
+                            <option></option>
+                            @foreach($course as $c)
+                            <option>{{ $c->name }}</option>
+                            @endforeach
+                        </select>
+                        </div>
+                    </div>
+                    <div class="row">
                         <div class="col-sm-8">
-                            <button class="btn btn-primary"><i class="fa fa-circle-o-notch fa-spin hidden mr-2 fa-spin-call"></i> Request Callback</button>
+                            <button class="btn btn-primary"><i class="fa fa-circle-notch fa-spin hidden mr-2 fa-spin-call"></i> Request Callback</button>
                         </div>
                     </div>
                 </form>
