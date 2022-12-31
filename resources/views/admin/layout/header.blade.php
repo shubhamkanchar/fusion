@@ -13,10 +13,12 @@
 <!-- Custom styles for this template-->
 <link href="{{url('public/theme/css/sb-admin-2.min.css') }}" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
-<link href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+<!-- <link href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap4.min.css" rel="stylesheet">
 <link href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
 <link href="https://cdn.datatables.net/buttons/2.3.2/css/buttons.dataTables.min.css">
-<link href="https://cdn.datatables.net/datetime/1.2.0/css/dataTables.dateTime.min.css">
+<link href="https://cdn.datatables.net/datetime/1.2.0/css/dataTables.dateTime.min.css"> -->
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.13.1/b-2.3.3/b-html5-2.3.3/date-1.2.0/datatables.min.css"/>
+
 @section('css')
 <style>
     .is-invalid

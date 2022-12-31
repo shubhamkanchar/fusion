@@ -129,7 +129,7 @@
             @foreach($instructor as $i)
             <div class="col-md-3">
                 <div class="instruct-card">
-                    <img src="{{ url('public/uploads/instructor/').'/'.$i->file }}" alt="">
+                    <img src="{{ url('public/uploads/instructor/').'/'.$i->file }}" alt="{{ $i->name }}">
                     <h6>{{ $i->name }}</h6>
                     <p>{{ $i->course }}</p>
 

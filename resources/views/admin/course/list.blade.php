@@ -14,17 +14,19 @@
                         <th>Seats</th>
                         <th>Fees</th>
                         <th>Duration</th>
+                        <th>status</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach($data as $d)
                     <tr>
-                        <td><img style="height:50px;width:50px"src="{{ url('public/uploads/course').'/'.$d->file }}"></td>
+                        <td><img style="height:50px;width:50px"src="{{ url('public/uploads/course').'/'.$d->file }}" alt="{{ $d->name }}"></td>
                         <td>{{ $d->name }}</td>
                         <td>{{ $d->seats }}</td>
                         <td>{{ $d->fees }}</td>
                         <td>{{ $d->duration }}</td>
+                        <th>{{ $d->course_status == 'on' ? 'Active' : 'Inactive'}}</th>
                         <td>
                             <a href="{{ route('admin.update_course',['id'=>$d->id]) }}" class="btn btn-primary" >Edit</a>
                             <a href="{{ route('admin.course_delete',['id'=>$d->id]) }}" class="btn btn-danger" >Delete</a>
@@ -39,6 +41,7 @@
                         <th>Seats</th>
                         <th>Fees</th>
                         <th>Duration</th>
+                        <th>status</th>
                         <th>Action</th>
                     </tr>
                 </tfoot>

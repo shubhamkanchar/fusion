@@ -18,9 +18,10 @@
     <div class="container">
         <div class="row courc-ro">
             @foreach($course as $c)
+            @if($c->course_status == 'on')
             <div class="col-md-4">
                 <div class="courc-card">
-                    <img style="height: 200px;" src="{{ url('public/uploads/course/').'/'.$c->file }}" alt="">
+                    <img style="height: 200px;" src="{{ url('public/uploads/course/').'/'.$c->file }}" alt="{{ $c->name }}">
                     <div class="cource-det">
                         <h6>{{ $c->name }}</h6>
                         <ul>
@@ -31,6 +32,7 @@
                     </div>
                 </div>
             </div>
+            @endif
             @endforeach
            
         </div>

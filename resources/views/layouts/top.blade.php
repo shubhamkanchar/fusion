@@ -1,7 +1,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title> {{ config('app.name', 'Laravel') }}</title>
-
+<title> Fusion Software Institute Pune | Top Software Training Institute In Pune</title>
+<meta name="description" content="Pune's Top Institute for Quality IT Training Courses.100% Placement Record. Industry Focused Trainers. Software Testing.Java Development·Python-Data Science etc"/>
 <!-- <link rel="shortcut icon" href="{{ url('public/assets/images/fav.jpg') }}"> -->
 <link rel="icon" type="image/x-icon" href="{{ url('public/favicon.ico') }}">
 <link rel="stylesheet" href="{{ url('public/assets/css/bootstrap.min.css') }}">

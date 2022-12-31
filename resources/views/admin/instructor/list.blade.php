@@ -19,7 +19,7 @@
                 <tbody>
                     @foreach($data as $d)
                     <tr>
-                        <td><img style="height:50px;width:50px"src="{{ url('public/uploads/instructor').'/'.$d->file }}"></td>
+                        <td><img style="height:50px;width:50px"src="{{ url('public/uploads/instructor').'/'.$d->file }}" alt="{{ $d->name }}"></td>
                         <td>{{ $d->name }}</td>
                         
                         <td>{{ $d->course }}</td>

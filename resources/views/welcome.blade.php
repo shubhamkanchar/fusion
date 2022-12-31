@@ -6,7 +6,7 @@
     <div class="owl-carousel ">
         <div class="slider-img">
             <div class="item">
-                <div class="slider-img"><img src="{{ url('public/assets/images/slider/slider-1.jpg') }}" alt=""></div>
+                <div class="slider-img"><img alt="Software Testing Course" src="{{ url('public/assets/images/slider/slider-1.jpg') }}"></div>
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-12 col-xs-12">
@@ -21,13 +21,13 @@
             </div>
         </div>
         <div class="item">
-            <div class="slider-img"><img src="{{ url('public/assets/images/slider/slider-2.jpg') }}" alt=""></div>
+            <div class="slider-img"><img alt="Top IT courses" src="{{ url('public/assets/images/slider/slider-2.jpg') }}" ></div>
             <div class="container">
                 <div class="row">
                     <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-12 col-xs-12">
                         <div class="slider-captions">
-                            <h1 class="slider-title">Education Learning Course</h1>
-                            <p class="slider-text hidden-xs">Get expert advise and Q&A session</p>
+                            <h1 class="slider-title">Learning Software Course</h1>
+                            <p class="slider-text hidden-xs">Get IT Courses and expert advise and Q&A session</p>
                             <a type="button" data-toggle="modal" data-target="#myModal" class="btn btn-success hidden-xs text-white">Book demo</a>
                         </div>
                     </div>
@@ -35,12 +35,12 @@
             </div>
         </div>
         <div class="item">
-            <div class="slider-img"> <img src="{{ url('public/assets/images/slider/slider-3.jpg') }}" alt=""></div>
+            <div class="slider-img"> <img alt="Online IT Courses" src="{{ url('public/assets/images/slider/slider-3.jpg') }}"></div>
             <div class="container">
                 <div class="row">
                     <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-12 col-xs-12">
                         <div class="slider-captions">
-                            <h1 class="slider-title">Best Institute to learn and Grow</h1>
+                            <h1 class="slider-title">Best Software Training in Pune</h1>
                             <p class="slider-text hidden-xs">Learn by working on live project in top tech company</p>
                             <a href="{{ route('login') }}" class="btn btn-success hidden-xs">Join Today</a>
                         </div>
@@ -88,9 +88,10 @@
         </div>
         <div class="row courc-ro">
             @foreach($course as $c)
+            @if($c->course_status == 'on')
             <div class="col-md-4">
                 <div class="courc-card">
-                    <img style="height: 200px;" src="{{ url('public/uploads/course/').'/'.$c->file }}" alt="">
+                    <img style="height: 200px;" src="{{ url('public/uploads/course/').'/'.$c->file }}" alt="{{ $c->name }}">
                     <div class="cource-det">
                         <h6>{{ $c->name }}</h6>
                         <ul>
@@ -101,6 +102,7 @@
                     </div>
                 </div>
             </div>
+            @endif
             @endforeach
         </div>
         <div class="text-center mt-4">
@@ -160,7 +162,7 @@
             @foreach($instructor as $i)
             <div class="col-md-3">
                 <div class="instruct-card">
-                    <img src="{{ url('public/uploads/instructor/').'/'.$i->file }}" alt="">
+                    <img src="{{ url('public/uploads/instructor/').'/'.$i->file }}" alt="{{ $i->name }}">
                     <h6>{{ $i->name }}</h6>
                     <p>{{ $i->course }}</p>
 

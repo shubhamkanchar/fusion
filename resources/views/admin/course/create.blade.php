@@ -9,6 +9,12 @@
             <form action="{{ route('admin.create_course') }}" method="post" id="AddCourse" enctype='multipart/form-data'>
                 @csrf()
                 <input type="hidden" name="id" id="id" value="{{ $data['id'] ?? ''}}">
+                <div class="form-group row mt-3">
+                    <div class="custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input" name="course_status" id="courseStatus" @if( old('status',( $data['course_status'] ?? '' )) == 'on') checked @endif>
+                        <label class="custom-control-label" for="courseStatus">Is Course Active</label>
+                    </div>
+                </div>
                 <div class="form-group row">
                     <label for="name">Course Title</label>
                     <input class="form-control @error('name')  is-invalid @enderror" type="text" name="name" id="name" value="{{ $data['name'] ?? ''}}">
@@ -30,19 +36,19 @@
                     <span class="is-invalid">{{ $message }}</span>
                     @enderror
                 </div>
-                
+
                 @if(isset($data) && !empty($data))
                 <div class="form-group row">
-                @php
-                $pdfs=App\Models\pdfs::where('course_id',$data->id)->get()
-                @endphp
+                    @php
+                    $pdfs=App\Models\pdfs::where('course_id',$data->id)->get()
+                    @endphp
                     @if(count($pdfs) > 0)
-                        @foreach($pdfs as $pd)
-                        <a class="btn btn-danger mt-3 mr-3" href="{{ route('admin.delete_pdf',['id'=>$pd->id]) }}">{{ $pd->name }}</a>
-                        @endforeach
+                    @foreach($pdfs as $pd)
+                    <a class="btn btn-danger mt-3 mr-3" href="{{ route('admin.delete_pdf',['id'=>$pd->id]) }}">{{ $pd->name }}</a>
+                    @endforeach
                     @endif
                 </div>
-                @endif 
+                @endif
 
                 <div class="form-group row">
                     <label for="lang">Course language</label>
@@ -52,6 +58,7 @@
                     @enderror
                 </div>
                 <div class="form-group row">
+
                     <div class="col-md-4">
                         <label for="seats">Total Seats</label>
                         <input class="form-control  @error('seats')  is-invalid @enderror" type="number" name="seats" id="seats" value="{{ $data['seats'] ?? ''}}">
@@ -68,7 +75,7 @@
                     </div>
                     <div class="col-md-4">
                         <label for="duration">duration (in month's)</label>
-                        <input class="form-control  @error('duration')  is-invalid @enderror" type="number" name="duration" id="duration" value="{{ $data['duration'] ?? ''}}">
+                        <input class="form-control  @error('duration')  is-invalid @enderror" type="text" name="duration" id="duration" value="{{ $data['duration'] ?? ''}}">
                         @error('duration')
                         <span class="is-invalid">{{ $message }}</span>
                         @enderror
@@ -117,7 +124,7 @@
                     <button class="btn btn-primary" type="submit">{{ request()->id ? 'Update Course' : 'Add Course' }}</button>
                 </div>
             </form>
-             
+
         </div>
     </div>
 </div>

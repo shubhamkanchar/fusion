@@ -19,7 +19,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-6 col-md-12">
-                <img src="{{ url('public/assets/images/why.jpg') }}" alt="">
+                <img src="{{ url('public/assets/images/why.jpg') }}" alt="why choose us">
             </div>
             <div class="col-lg-6 col-md-12 txtr">
                 <h4>Why choose us ?</h4>
@@ -96,7 +96,7 @@
             @foreach($instructor as $i)
             <div class="col-md-3">
                 <div class="instruct-card">
-                    <img src="{{ url('public/uploads/instructor/').'/'.$i->file }}" alt="">
+                    <img src="{{ url('public/uploads/instructor/').'/'.$i->file }}" alt="{{ $i->name }}">
                     <h6>{{ $i->name }}</h6>
                     <p>{{ $i->course }}</p>
 

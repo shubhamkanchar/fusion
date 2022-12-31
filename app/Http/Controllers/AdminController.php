@@ -153,7 +153,8 @@ class AdminController extends Controller
                 'pdf'=>$pdf,
                 'pre'=>$request->pre,
                 'for'=> $request->for,
-                'lang'=>$request->lang
+                'lang'=>$request->lang,
+                'course_status'=>$request->course_status ?? 'off'
             ]);
 
             return redirect()->route('admin.add_course')->with('success','course updated successfully');
@@ -196,7 +197,8 @@ class AdminController extends Controller
                 'syllabus'=>$request->syllabus,
                 'pre'=>$request->pre,
                 'for'=> $request->for,
-                'lang'=>$request->lang
+                'lang'=>$request->lang,
+                'course_status'=>$request->course_status ?? 'off'
             ]);
 
             $pdf='';

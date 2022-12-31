@@ -5,19 +5,18 @@
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Batches List</h1>
         </div>
-        <div class="col-md-12">
-            <!-- <table border="0" cellspacing="5" cellpadding="5">
+        <div class="col-md-12 table-responsive">
+            <table border="0" cellspacing="5" cellpadding="5" class="mb-3">
                 <tbody>
                     <tr>
                         <td>Minimum date:</td>
-                        <td><input type="date" id="min" name="min" date-format="MMMM DD YYYY"></td>
-                    </tr>
-                    <tr>
+                        <td><input type="text" id="min" name="min"></td>
+                    
                         <td>Maximum date:</td>
                         <td><input type="text" id="max" name="max"></td>
                     </tr>
                 </tbody>
-            </table> -->
+            </table>
             <table id="myTable" class="table table-striped table-bordered" style="width:100%">
                 <thead>
                     <tr>
@@ -87,7 +86,7 @@
         function(settings, data, dataIndex) {
             var min = minDate.val();
             var max = maxDate.val();
-            var date = new Date(data[4]);
+            var date = new Date(data[6]);
 
             if (
                 (min === null && max === null) ||
@@ -104,18 +103,22 @@
     $(document).ready(function() {
         // Create date inputs
         minDate = new DateTime($('#min'), {
-            format: 'MMMM Do YYYY'
+            format: 'YYYY-MM-DD'
         });
         maxDate = new DateTime($('#max'), {
-            format: 'MMMM Do YYYY'
+            format: 'YYYY-MM-DD'
         });
 
         // DataTables initialisation
         var table =  $('#myTable').DataTable({
-                dom: 'Blfrtip',
-                buttons: [
-                    'excelHtml5'
-                ]
+                // dom: 'Blfrtip',
+                dom:"<'row'<'col-sm-1 btn'B><'col-sm-7'l><'col-sm-4'f>>" +
+                    "<'row'<'col-sm-12'tr>>" +
+                    "<'row'<'col-sm-6'i><'col-sm-6'p>>",
+                buttons: [{
+                    extend:'excelHtml5',
+                    className: "btn btn-success",
+                }]
             });
         
         // Refilter the table
