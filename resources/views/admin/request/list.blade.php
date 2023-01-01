@@ -6,20 +6,28 @@
             <h1 class="h3 mb-0 text-gray-800">Batches List</h1>
         </div>
         <div class="col-md-12 table-responsive">
-            <table border="0" cellspacing="5" cellpadding="5" class="mb-3">
+            <table border="0" cellspacing="5" cellpadding="5" class="mb-3" style="width:100%">
                 <tbody>
                     <tr>
                         <td>Minimum date:</td>
                         <td><input type="text" id="min" name="min"></td>
-                    
+
                         <td>Maximum date:</td>
                         <td><input type="text" id="max" name="max"></td>
+                        @if(auth()->user()->type == 'admin')
+                        <td class="text-end">
+                            <button class="btn btn-danger btn-sm delete-bulk">Delete</button>
+                        </td>
+                        @endif
                     </tr>
                 </tbody>
             </table>
             <table id="myTable" class="table table-striped table-bordered" style="width:100%">
                 <thead>
                     <tr>
+                        @if(auth()->user()->type == 'admin')
+                        <th>select</th>
+                        @endif
                         <th>type</th>
                         <th>name</th>
                         <th>email</th>
@@ -34,6 +42,13 @@
                 <tbody>
                     @foreach($data as $d)
                     <tr>
+                        @if(auth()->user()->type == 'admin')
+                        <td>
+                            @if($d->status == 'Completed')
+                            <input type="checkbox" name="selected_id" value="{{$d->id}}" class="request">
+                            @endif
+                        </td>
+                        @endif
                         <td>{{ $d->type }}</td>
                         <td>{{ $d->name }}</td>
                         <td>{{ $d->email }}</td>
@@ -51,15 +66,16 @@
                             <a href="{{ route('manager.request_update',['id'=>$d->id]) }}" class="btn btn-primary btn-sm mb-1">Mark Completed</a>
                             @endif
 
-                            @if(auth()->user()->type == 'admin' && $d->status == 'Completed')
-                            <a href="{{ route('admin.request_delete',['id'=>$d->id]) }}" class="btn btn-danger btn-sm">Delete</a>
-                            @endif
+
                         </td>
                     </tr>
                     @endforeach
                 </tbody>
                 <tfoot>
                     <tr>
+                        @if(auth()->user()->type == 'admin')
+                        <th>select</th>
+                        @endif
                         <th>type</th>
                         <th>name</th>
                         <th>email</th>
@@ -100,6 +116,33 @@
         }
     );
 
+    $('.delete-bulk').on('click', function() {
+        let yourArray = [];
+        $("input:checkbox[name=selected_id]:checked").each(function() {
+            yourArray.push($(this).val());
+        });
+        if (yourArray.length == 0) {
+            alert('Please select atleast on request');
+        } else {
+            $.ajax({
+                url:'{{ route("admin.selected_delete") }}',
+                data:{
+                    '_token':'{{ csrf_token() }}',
+                    'yourArray':yourArray
+                },
+                method:'POST',
+                success :function(res){
+                    if(res.status == 1){
+                        toastr.success(res.msg);
+                        setTimeout(function(){
+                            window.location.reload();
+                        }, 2000);
+                    }
+                }
+            });
+        }
+    });
+
     $(document).ready(function() {
         // Create date inputs
         minDate = new DateTime($('#min'), {
@@ -110,17 +153,17 @@
         });
 
         // DataTables initialisation
-        var table =  $('#myTable').DataTable({
-                // dom: 'Blfrtip',
-                dom:"<'row'<'col-sm-1 btn'B><'col-sm-7'l><'col-sm-4'f>>" +
-                    "<'row'<'col-sm-12'tr>>" +
-                    "<'row'<'col-sm-6'i><'col-sm-6'p>>",
-                buttons: [{
-                    extend:'excelHtml5',
-                    className: "btn btn-success",
-                }]
-            });
-        
+        var table = $('#myTable').DataTable({
+            // dom: 'Blfrtip',
+            dom: "<'row'<'col-sm-1 btn'B><'col-sm-7'l><'col-sm-4'f>>" +
+                "<'row'<'col-sm-12'tr>>" +
+                "<'row'<'col-sm-6'i><'col-sm-6'p>>",
+            buttons: [{
+                extend: 'excelHtml5',
+                className: "btn btn-success",
+            }]
+        });
+
         // Refilter the table
         $('#min, #max').on('change', function() {
             table.draw();

@@ -28,7 +28,7 @@
                         <div class="slider-captions">
                             <h1 class="slider-title">Learning Software Course</h1>
                             <p class="slider-text hidden-xs">Get IT Courses and expert advise and Q&A session</p>
-                            <a type="button" data-toggle="modal" data-target="#myModal" class="btn btn-success hidden-xs text-white">Book demo</a>
+                            <a type="button" data-toggle="modal" data-target="#myModal" class="btn btn-success hidden-xs text-white">Book Demo</a>
                         </div>
                     </div>
                 </div>
@@ -120,12 +120,12 @@
     <div class="inner-lay">
         <div class="container">
             <div class="row session-title">
-                <h2>{{ config('app.name', 'Laravel') }} in numbers</h2>
-                <p>Our Mission is to place students in IT industry and make them financially strong, productive and successful.</p>
+                <h2>{{ config('app.name', 'Laravel') }} In Numbers</h2>
+                <!-- <p>Our Mission is to place students in IT industry and make them financially strong, productive and successful.</p> -->
             </div>
             <div class="row">
                 <div class="col-sm-3 numb">
-                    <h3>1500+</h3>
+                    <h3>500+</h3>
                     <span>STUDENTS</span>
                 </div>
                 <div class="col-sm-3 numb">
@@ -134,12 +134,12 @@
                 </div>
                 <div class="col-sm-3 numb">
                     <!-- <h3>{{ App\Models\instructor::count() ?? 0}}</h3> -->
-                    <h3>13</h3>
-                    <span>QUALIFIED STAFF</span>
+                    <h3>20</h3>
+                    <span>QUALIFIED TRAINERS</span>
                 </div>
                 <div class="col-sm-3 numb">
-                    <h3>99%</h3>
-                    <span>SATISFACTION RATE</span>
+                    <h3>95%</h3>
+                    <span>PLACEMENT PERCENTAGE</span>
                 </div>
             </div>
         </div>

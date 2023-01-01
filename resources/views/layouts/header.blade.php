@@ -11,11 +11,11 @@
                 </div>
                 <div class="col-lg-6 d-none d-lg-block right-item">
                     <ul>
-                        <li><a target="_blank" href="https://www.instagram.com/p/CZ1-eICPucZ/"><i class="text-white fab fa-instagram"></i></a></li>
+                        <li><a target="_blank" href="https://www.instagram.com/fusion_institute_pune/"><i class="text-white fab fa-instagram"></i></a></li>
                         <li> <a target="_blank" href="https://api.whatsapp.com/send/?phone={{ env('WHATSAPP_NO') }}&text={{ urlencode('I am intersted in course you provide') }}"><i class="text-white fab fa-whatsapp"></i></a></li>
                         <!-- <li><a><i class="text-white fab fa-twitter"></i></a></li> -->
-                        <li> <a target="_blank" href="https://www.facebook.com/111239338082168/posts/pfbid034Vf37amodcvC7bxCQC9onYM5DXxGnnKWRbQGgxgLw4KvLrfU76yxCG8y73FgWV3nl/"><i class=" text-white fab fa-facebook-f"></i></a></li>
-                        <li><a target="_blank" href="javascript:;"><i class="text-white fab fa-linkedin"></i></a></li>
+                        <li> <a target="_blank" href="https://m.facebook.com/profile.php?id=100088395132564&eav=AfZcb8GbgISBGWyFn8AttEB6DvU66jabdFgN9fDdff35l8xuyyWXV_U_3Uvv_F0HM2U&paipv=0"><i class=" text-white fab fa-facebook-f"></i></a></li>
+                        <li><a target="_blank" href="https://www.linkedin.com/in/fusion-software-institute-493538258/"><i class="text-white fab fa-linkedin"></i></a></li>
                     </ul>
                 </div>
             </div>
@@ -40,7 +40,7 @@
                         <!-- <li><a rel="canonical" href="{{ route('gallery') }}">Gallery</a></li> -->
                         <li><a rel="canonical" href="{{ route('contact_us') }}">Contact Us</a></li>
                         <li><a rel="canonical" class="btn btn-primary btn-sm" href="{{ route('register') }}">Register</a></li>
-                        <li><a rel="canonical" class="btn btn-primary btn-sm text-white" data-toggle="modal" data-target="#myModal">Book demo</a></li>
+                        <li><a rel="canonical" class="btn btn-primary btn-sm text-white" data-toggle="modal" data-target="#myModal">Book Demo</a></li>
                     </ul>
                 </div>
             </div>

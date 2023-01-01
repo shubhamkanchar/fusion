@@ -376,4 +376,16 @@ class AdminController extends Controller
         pdfs::where('id',$request->id)->delete();
         return redirect()->back()->with('success',$pdf->name.' Deleted successfully');
     }
+
+    public function selected_delete(Request $request)
+    {
+        foreach($request->yourArray as $d){
+            ModelsRequest::where('id',$d)->delete();
+        }
+
+        return response()->json([
+            'status'=>1,
+            'msg'=>'Request Deleted Successfully'
+        ]);
+    }
 }

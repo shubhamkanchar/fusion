@@ -99,6 +99,8 @@ Route::middleware(['auth', 'user-access:admin','verified'])->prefix('admin')->na
     Route::get('/request/delete/{id}', [AdminController::class, 'request_delete'])->name('request_delete');
     Route::get('/request/update/{id}', [AdminController::class, 'request_update'])->name('request_update');
     route::get('pdf/{id}',[AdminController::class, 'delete_pdf'])->name('delete_pdf');
+
+    route::post('selected_delete',[AdminController::class ,'selected_delete'])->name('selected_delete');
 });
 
 Route::middleware(['auth', 'user-access:manager','verified'])->prefix('manager')->name('manager.')->group(function () {

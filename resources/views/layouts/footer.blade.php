@@ -89,7 +89,7 @@ $course=App\Models\cources::all();
                     <li><a href="{{ route('about_us') }}"><i class="fas fa-angle-double-right"></i>About Us</a></li>
                     <li><a href="{{ route('cources') }}"><i class="fas fa-angle-double-right"></i>Courses</a></li>
                     <li><a href="{{ route('batches') }}"><i class="fas fa-angle-double-right"></i>Batches</a></li>
-                    <li><a href="{{ route('gallery') }}"><i class="fas fa-angle-double-right"></i>Gallery</a></li>
+                    <!-- <li><a href="{{ route('gallery') }}"><i class="fas fa-angle-double-right"></i>Gallery</a></li> -->
                     <li><a href="{{ route('contact_us') }}"><i class="fas fa-angle-double-right"></i>Contact Us</a></li>
                 </ul>
             </div>
@@ -99,12 +99,12 @@ $course=App\Models\cources::all();
                 <ul>
                     <!-- <li><a><img style="width:50px" src="{{ url('public/assets/images/Google_plus.png') }}" alt="google"></a></li>
                     <li><a><img style="width:50px" src="{{ url('public/assets/images/twitter.png') }}" alt="twitter"></a></li> -->
-                    <li><a target="_blank" href="https://www.facebook.com/111239338082168/posts/pfbid034Vf37amodcvC7bxCQC9onYM5DXxGnnKWRbQGgxgLw4KvLrfU76yxCG8y73FgWV3nl/"><img style="width:50px" src="{{ url('public/assets/images/facebook.png') }}" alt="facebook"></a></li>
+                    <li><a target="_blank" href="https://m.facebook.com/profile.php?id=100088395132564&eav=AfZcb8GbgISBGWyFn8AttEB6DvU66jabdFgN9fDdff35l8xuyyWXV_U_3Uvv_F0HM2U&paipv=0"><img style="width:50px" src="{{ url('public/assets/images/facebook.png') }}" alt="facebook"></a></li>
                     <li><a target="_blank" href="https://api.whatsapp.com/send/?phone={{ env('WHATSAPP_NO') }}&text={{ urlencode('I am intersted in course you provide') }}"><img style="width:50px" src="{{ url('public/assets/images/whatsapp.png') }}" alt="whatsapp"></a></li>
 
                     <!-- <li><a><img style="width:50px" src="{{ url('public/assets/images/youtube.png') }}"></a></li> -->
-                    <li><a target="_blank" href="https://www.instagram.com/p/CZ1-eICPucZ/"><img style="width:50px" src="{{ url('public/assets/images/instagram.png') }}" alt="instagram"></a></li>
-                    <li><a target="_blank" href="javascript:;"><img style="width:50px" src="{{ url('public/assets/images/LinkedIn.png') }}" alt="linkedin"></a></li>
+                    <li><a target="_blank" href="https://www.instagram.com/fusion_institute_pune/"><img style="width:50px" src="{{ url('public/assets/images/instagram.png') }}" alt="instagram"></a></li>
+                    <li><a target="_blank" href="https://www.linkedin.com/in/fusion-software-institute-493538258/"><img style="width:50px" src="{{ url('public/assets/images/LinkedIn.png') }}" alt="linkedin"></a></li>
 
                 </ul>
             </div>
@@ -152,11 +152,11 @@ $course=App\Models\cources::all();
         <a href="{{ route('welcome') }}">2022 &copy; All Rights Reserved | Designed and Developed by {{ config('app.name', 'Laravel') }}</a>
 
         <span>
-            <a target="_blank" href="https://www.instagram.com/p/CZ1-eICPucZ/"><i class="text-white fab fa-instagram"></i></a>
+            <a target="_blank" href="https://www.instagram.com/fusion_institute_pune/"><i class="text-white fab fa-instagram"></i></a>
             <a target="_blank" href="https://api.whatsapp.com/send/?phone={{ env('WHATSAPP_NO') }}&text={{ urlencode('I am intersted in course you provide') }}"><i class="text-white fab fa-whatsapp"></i></a>
             <!-- <a><i class="text-white fab fa-twitter"></i></a> -->
-            <a target="_blank" href="https://www.facebook.com/111239338082168/posts/pfbid034Vf37amodcvC7bxCQC9onYM5DXxGnnKWRbQGgxgLw4KvLrfU76yxCG8y73FgWV3nl/"><i class=" text-white fab fa-facebook-f"></i></a>
-            <a target="_blank" href="javascript:;"><i class="text-white fab fa-linkedin"></i></a>
+            <a target="_blank" href="https://m.facebook.com/profile.php?id=100088395132564&eav=AfZcb8GbgISBGWyFn8AttEB6DvU66jabdFgN9fDdff35l8xuyyWXV_U_3Uvv_F0HM2U&paipv=0"><i class=" text-white fab fa-facebook-f"></i></a>
+            <a target="_blank" href="https://www.linkedin.com/in/fusion-software-institute-493538258/"><i class="text-white fab fa-linkedin"></i></a>
         </span>
     </div>
 </div>

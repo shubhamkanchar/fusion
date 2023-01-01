@@ -23,7 +23,7 @@
             </div>
             <div class="col-lg-6 col-md-12 txtr">
                 <h4>Why choose us ?</h4>
-                <p>The Fusion Corporate Training Center (FCTC) is not a class or institute it is a family who cares about every family members.FCTC is dedicated to advancing the IT profession by setting high standards, providing quality training and creating job ready candidates.</p>
+                <p>The Fusion Software Institute is not a class or institute, it is a family who cares about every family members. We are dedicated to advance the IT profession by setting high standards, providing quality training and creating job ready candidates.</p>
 
                 <h4 class="mt-5">Our Key Features</h4>
                 <p>1. Limited seat batches.</p>
@@ -42,10 +42,10 @@
                 <h4>Our Vision</h4>
                 <p>Our vision is to provide optimal, job oriened and real time training.</p>
             </div>
-            <div class="col-lg-6 col-md-12 mt-4">
+            <!-- <div class="col-lg-6 col-md-12 mt-4">
                 <h4>Our Mission</h4>
                 <p>Our Mission is to place students in IT industry and make them financially strong, productive and successful.</p>
-            </div>
+            </div> -->
         </div>
     </div>
 </section>
@@ -58,12 +58,12 @@
     <div class="inner-lay">
         <div class="container">
             <div class="row session-title">
-                <h2>{{ config('app.name', 'Laravel') }} in numbers</h2>
-                <p>Our Mission is to place students in IT industry and make them financially strong, productive and successful.</p>
+                <h2>{{ config('app.name', 'Laravel') }} In Numbers</h2>
+                <!-- <p>Our Mission is to place students in IT industry and make them financially strong, productive and successful.</p> -->
             </div>
             <div class="row">
                 <div class="col-sm-3 numb">
-                    <h3>1500+</h3>
+                    <h3>500+</h3>
                     <span>STUDENTS</span>
                 </div>
                 <div class="col-sm-3 numb">
@@ -72,12 +72,12 @@
                 </div>
                 <div class="col-sm-3 numb">
                     <!-- <h3>{{ App\Models\instructor::count() ?? 0}}</h3> -->
-                    <h3>13</h3>
-                    <span>QUALIFIED STAFF</span>
+                    <h3>20</h3>
+                    <span>QUALIFIED TRAINERS</span>
                 </div>
                 <div class="col-sm-3 numb">
-                    <h3>99%</h3>
-                    <span>SATISFACTION RATE</span>
+                    <h3>95%</h3>
+                    <span>PLACEMENT PERCENTAGE</span>
                 </div>
             </div>
         </div>
