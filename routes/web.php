@@ -100,7 +100,6 @@ Route::middleware(['auth', 'user-access:admin','verified'])->prefix('admin')->na
     Route::get('/request/update/{id}', [AdminController::class, 'request_update'])->name('request_update');
     route::get('pdf/{id}',[AdminController::class, 'delete_pdf'])->name('delete_pdf');
     route::get('request_data',[AdminController::class, 'requestData'])->name('requestData');
-    route::post('selected_delete',[AdminController::class ,'selected_delete'])->name('selected_delete');
 });
 
 Route::middleware(['auth', 'user-access:manager','verified'])->prefix('manager')->name('manager.')->group(function () {
@@ -113,3 +112,5 @@ Route::middleware(['auth', 'user-access:manager','verified'])->prefix('manager')
 Route::middleware(['auth', 'user-access:user','verified'])->prefix('user')->name('user.')->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
 });
+
+route::post('selected_delete',[AdminController::class ,'selected_delete'])->name('selected_delete');

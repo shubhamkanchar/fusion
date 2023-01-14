@@ -113,7 +113,7 @@
             alert('Please select atleast on request');
         } else {
             $.ajax({
-                url: '{{ route("admin.selected_delete") }}',
+                url: '{{ route("selected_delete") }}',
                 data: {
                     '_token': '{{ csrf_token() }}',
                     'yourArray': yourArray
