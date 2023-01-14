@@ -11,23 +11,18 @@
                     <tr>
                         <td>Minimum date:</td>
                         <td><input type="text" id="min" name="min"></td>
-
                         <td>Maximum date:</td>
                         <td><input type="text" id="max" name="max"></td>
-                        @if(auth()->user()->type == 'admin')
                         <td class="text-end">
                             <button class="btn btn-danger btn-sm delete-bulk">Delete</button>
                         </td>
-                        @endif
                     </tr>
                 </tbody>
             </table>
             <table id="myTable" class="table table-striped table-bordered" style="width:100%">
                 <thead>
                     <tr>
-                        @if(auth()->user()->type == 'admin')
-                        <th>select</th>
-                        @endif
+                        <th><input type="checkbox" name="select_all" value="" class="select_all"></th>
                         <th>type</th>
                         <th>name</th>
                         <th>email</th>
@@ -42,13 +37,11 @@
                 <tbody>
                     @foreach($data as $d)
                     <tr>
-                        @if(auth()->user()->type == 'admin')
                         <td>
                             @if($d->status == 'Completed')
-                            <input type="checkbox" name="selected_id" value="{{$d->id}}" class="request">
+                            <input type="checkbox" name="selected_id" value="{{$d->id}}" class="request select-checkbox">
                             @endif
                         </td>
-                        @endif
                         <td>{{ $d->type }}</td>
                         <td>{{ $d->name }}</td>
                         <td>{{ $d->email }}</td>
@@ -60,13 +53,9 @@
                         <td>
                             @if($d->status == 'New' && auth()->user()->type == 'admin')
                             <a href="{{ route('admin.request_update',['id'=>$d->id]) }}" class="btn btn-primary btn-sm mb-1">Mark Completed</a>
-
-
                             @elseif($d->status == 'New' && auth()->user()->type == 'manager')
                             <a href="{{ route('manager.request_update',['id'=>$d->id]) }}" class="btn btn-primary btn-sm mb-1">Mark Completed</a>
                             @endif
-
-
                         </td>
                     </tr>
                     @endforeach
@@ -102,8 +91,7 @@
         function(settings, data, dataIndex) {
             var min = minDate.val();
             var max = maxDate.val();
-            var date = new Date(data[6]);
-
+            var date = new Date(data[7]);
             if (
                 (min === null && max === null) ||
                 (min === null && date <= max) ||
@@ -125,16 +113,16 @@
             alert('Please select atleast on request');
         } else {
             $.ajax({
-                url:'{{ route("admin.selected_delete") }}',
-                data:{
-                    '_token':'{{ csrf_token() }}',
-                    'yourArray':yourArray
+                url: '{{ route("admin.selected_delete") }}',
+                data: {
+                    '_token': '{{ csrf_token() }}',
+                    'yourArray': yourArray
                 },
-                method:'POST',
-                success :function(res){
-                    if(res.status == 1){
+                method: 'POST',
+                success: function(res) {
+                    if (res.status == 1) {
                         toastr.success(res.msg);
-                        setTimeout(function(){
+                        setTimeout(function() {
                             window.location.reload();
                         }, 2000);
                     }
@@ -154,19 +142,35 @@
 
         // DataTables initialisation
         var table = $('#myTable').DataTable({
-            // dom: 'Blfrtip',
-            dom: "<'row'<'col-sm-1 btn'B><'col-sm-7'l><'col-sm-4'f>>" +
+            columnDefs: [{
+                orderable: false,
+                className: 'select-checkbox',
+                targets: 0,
+                checkboxes: {
+                    selectRow: true
+                }
+            }],
+            dom: "<'row'<'col-sm-2 btn'B><'col-sm-6 pt-2'l><'col-sm-4 pt-2'f>>" +
                 "<'row'<'col-sm-12'tr>>" +
                 "<'row'<'col-sm-6'i><'col-sm-6'p>>",
             buttons: [{
                 extend: 'excelHtml5',
                 className: "btn btn-success",
+                text:'Download report'
             }]
         });
 
         // Refilter the table
         $('#min, #max').on('change', function() {
             table.draw();
+        });
+
+        $('.select_all').on('click', function() {
+            if ($(this).is(":checked")) {
+                $(".request").prop('checked', true);
+            } else {
+                $(".request").prop('checked', false);
+            }
         });
     });
 </script>

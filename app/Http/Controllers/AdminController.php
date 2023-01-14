@@ -9,6 +9,7 @@ use App\Models\pdfs;
 use App\Models\request as ModelsRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 
 class AdminController extends Controller
@@ -19,7 +20,7 @@ class AdminController extends Controller
         $u_count=User::where('type',0)->count();
         $b_count=batches::count();
         $c_count=cources::count();
-        return view('admin.home',['r_count'=>$r_count,'u_count'=>$u_count,'b_count'=>$b_count,'c_count'=>$c_count]);
+        return view('admin.home',compact($r_count,$u_count,$b_count,$c_count));
     }
 
     public function add_batch()
@@ -387,5 +388,13 @@ class AdminController extends Controller
             'status'=>1,
             'msg'=>'Request Deleted Successfully'
         ]);
+    }
+
+    public function requestData(){
+        $request = DB::table('request')
+                 ->select(DB::raw('DATE(created_at) as date'), DB::raw('count(*) as total'))
+                 ->groupBy('date')
+                 ->get();
+        return response()->json($request);
     }
 }

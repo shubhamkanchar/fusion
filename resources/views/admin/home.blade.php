@@ -93,13 +93,11 @@
             </div>
         </div>
     </div>
-    <!-- <div class="row">
-        <div class="col-md-6">
-            <div>
-                <canvas id="myChart"></canvas>
-            </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div id="myChart" style="width: 100%;height:400px;"></div>
         </div>
-    </div> -->
+    </div>
 </div>
 <!-- /.container-fluid -->
 @endsection
@@ -126,41 +124,89 @@
 @endsection
 
 @section('jspage')
-<!-- <script>
-    var xValues = [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000];
+<script>
+    var chartDom = document.getElementById('myChart');
+    var myChart = echarts.init(chartDom);
+    var option;
 
-    new Chart("myChart", {
-        type: "line",
-        options: {
-            scales: {
-                xAxes: [{
-                    type: 'time',
-                }]
+    $(document).ready(function() {
+        $.ajax({
+            url: '{{ route("admin.requestData") }}',
+            method: 'get',
+            success: function(response) {
+                let dates = [];
+                let counts = [];
+                $.each( response, function( key, value ) {
+                    dates.push(value['date']);
+                    counts.push(value['total']);
+                });
+
+                console.log(counts);
+                option = {
+                    title: {
+                        text: 'Request received'
+                    },
+                    tooltip: {
+                        trigger: 'axis'
+                    },
+                    // legend: {
+                    //     data: ['Email', 'Union Ads', 'Video Ads', 'Direct', 'Search Engine']
+                    // },
+                    grid: {
+                        left: '3%',
+                        right: '4%',
+                        bottom: '3%',
+                        containLabel: true
+                    },
+                    toolbox: {
+                        feature: {
+                            saveAsImage: {}
+                        }
+                    },
+                    xAxis: {
+                        type: 'category',
+                        boundaryGap: false,
+                        data: dates
+                    },
+                    yAxis: {
+                        type: 'value'
+                    },
+                    series: [{
+                            name: 'Request',
+                            type: 'line',
+                            stack: 'Total',
+                            data: counts
+                        },
+                        // {
+                        //     name: 'Union Ads',
+                        //     type: 'line',
+                        //     stack: 'Total',
+                        //     data: [220, 182, 191, 234, 290, 330, 310]
+                        // },
+                        // {
+                        //     name: 'Video Ads',
+                        //     type: 'line',
+                        //     stack: 'Total',
+                        //     data: [150, 232, 201, 154, 190, 330, 410]
+                        // },
+                        // {
+                        //     name: 'Direct',
+                        //     type: 'line',
+                        //     stack: 'Total',
+                        //     data: [320, 332, 301, 334, 390, 330, 320]
+                        // },
+                        // {
+                        //     name: 'Search Engine',
+                        //     type: 'line',
+                        //     stack: 'Total',
+                        //     data: [820, 932, 901, 934, 1290, 1330, 1320]
+                        // }
+                    ]
+                };
+
+                option && myChart.setOption(option);
             }
-        },
-        data: {
-            //labels: xValues,
-            datasets: [{
-                label: 'Contact',
-                data: [1, 11, 10, 60, 70, 10, 13, 22, 30, 24],
-                borderColor: "red",
-                fill: false
-            }, {
-                label: '',
-                data: [16, 17, 17, 19, 20, 27, 40, 50, 60, 70],
-                borderColor: "green",
-                fill: false
-            }, {
-                data: [30, 70, 20, 50, 60, 40, 20, 10, 20, 10],
-                borderColor: "blue",
-                fill: false
-            }]
-        },
-        options: {
-            legend: {
-                display: false
-            }
-        }
-    });
-</script> -->
+        });
+    })
+</script>
 @endsection
