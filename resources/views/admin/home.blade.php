@@ -94,8 +94,11 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-6">
             <div id="myChart" style="width: 100%;height:400px;"></div>
+        </div>
+        <div class="col-md-6">
+            <div id="main2" style="width: 100%;height:400px;"></div>
         </div>
     </div>
 </div>
@@ -136,7 +139,7 @@
             success: function(response) {
                 let dates = [];
                 let counts = [];
-                $.each( response, function( key, value ) {
+                $.each(response, function(key, value) {
                     dates.push(value['date']);
                     counts.push(value['total']);
                 });
@@ -204,6 +207,56 @@
                     ]
                 };
 
+                option && myChart.setOption(option);
+            }
+        });
+
+        $.ajax({
+            url: '{{ route("admin.requestData2") }}',
+            method: 'get',
+            success: function(response) {
+                var chartDom = document.getElementById('main2');
+                var myChart = echarts.init(chartDom);
+                var option;
+
+                option = {
+                    title: {
+                        text: 'Total Request',
+                        left: 'center'
+                    },
+                    tooltip: {
+                        trigger: 'item'
+                    },
+                    legend: {
+                        orient: 'vertical',
+                        left: 'left'
+                    },
+                    series: [{
+                        name: 'Access From',
+                        type: 'pie',
+                        radius: '50%',
+                        data: [{
+                                value: response.cb_count,
+                                name: 'Callback'
+                            },
+                            {
+                                value: response.vs_count,
+                                name: 'Visit'
+                            },
+                            {
+                                value: response.ms_count,
+                                name: 'Message'
+                            },
+                        ],
+                        emphasis: {
+                            itemStyle: {
+                                shadowBlur: 10,
+                                shadowOffsetX: 0,
+                                shadowColor: 'rgba(0, 0, 0, 0.5)'
+                            }
+                        }
+                    }]
+                };
                 option && myChart.setOption(option);
             }
         });

@@ -14,6 +14,9 @@
                         <td>Maximum date:</td>
                         <td><input type="text" id="max" name="max"></td>
                         <td class="text-end">
+                            <button class="btn btn-success btn-sm refresh_all">Refresh Table</button>
+                        </td>
+                        <td class="text-end">
                             <button class="btn btn-danger btn-sm delete-bulk">Delete</button>
                         </td>
                     </tr>
@@ -36,8 +39,8 @@
                 </thead>
                 <tbody>
                     @foreach($data as $d)
-                    <tr>
-                        <td>
+                    <tr id="row_{{$d->id}}_id">
+                        <td id="select_{{ $d->id }}">
                             @if($d->status == 'Completed')
                             <input type="checkbox" name="selected_id" value="{{$d->id}}" class="request select-checkbox">
                             @endif
@@ -49,12 +52,12 @@
                         <td>{{ $d->course }}</td>
                         <td>{{ $d->message }}</td>
                         <td>{{ $d->created_at }}</td>
-                        <td>{{ $d->status }}</td>
-                        <td>
+                        <td id="status_{{ $d->id }}">{{ $d->status }}</td>
+                        <td id="btn_{{ $d->id }}">
                             @if($d->status == 'New' && auth()->user()->type == 'admin')
-                            <a href="{{ route('admin.request_update',['id'=>$d->id]) }}" class="btn btn-primary btn-sm mb-1">Mark Completed</a>
+                            <button data-url="{{ route('admin.request_update',['id'=>$d->id]) }}" class="btn btn-primary btn-sm mb-1 mark_complete" data-id="{{ $d->id }}">Mark Completed</button>
                             @elseif($d->status == 'New' && auth()->user()->type == 'manager')
-                            <a href="{{ route('manager.request_update',['id'=>$d->id]) }}" class="btn btn-primary btn-sm mb-1">Mark Completed</a>
+                            <button data-url="{{ route('manager.request_update',['id'=>$d->id]) }}" class="btn btn-primary btn-sm mb-1 mark_complete" data-id="{{ $d->id }}">Mark Completed</button>
                             @endif
                         </td>
                     </tr>
@@ -85,7 +88,7 @@
 @section('jspage')
 <script>
     var minDate, maxDate;
-
+    var table;
     // Custom filtering function which will search data in column four between two values
     $.fn.dataTable.ext.search.push(
         function(settings, data, dataIndex) {
@@ -121,17 +124,37 @@
                 method: 'POST',
                 success: function(res) {
                     if (res.status == 1) {
+                        $.each(yourArray, function(key, item) {
+                            $('#row_' + item + '_id').fadeOut();
+                        })
                         toastr.success(res.msg);
-                        setTimeout(function() {
-                            window.location.reload();
-                        }, 2000);
                     }
                 }
             });
         }
     });
 
+    $('.mark_complete').on('click', function() {
+        let id = $(this).data('id');
+        $.ajax({
+            url: $(this).data('url'),
+            method: 'GET',
+            success: function(res) {
+                if(res.status == 1)
+                {
+                    $('#status_'+id).html('completed');
+                    $('#select_'+id).html('<input type="checkbox" name="selected_id" value="'+id+'" class="request select-checkbox">');
+                    $('#btn_'+id).html('');
+                    toastr.success(res.msg);
+                }
+            }
+        });
+    });
+
     $(document).ready(function() {
+        $('refresh_data').on('click',function(){
+            table.draw();
+        });
         // Create date inputs
         minDate = new DateTime($('#min'), {
             format: 'YYYY-MM-DD'
@@ -141,7 +164,7 @@
         });
 
         // DataTables initialisation
-        var table = $('#myTable').DataTable({
+        table = $('#myTable').DataTable({
             columnDefs: [{
                 orderable: false,
                 className: 'select-checkbox',
@@ -150,13 +173,15 @@
                     selectRow: true
                 }
             }],
+            "bStateSave": true,
+            stateSave: true,
             dom: "<'row'<'col-sm-2 btn'B><'col-sm-6 pt-2'l><'col-sm-4 pt-2'f>>" +
                 "<'row'<'col-sm-12'tr>>" +
                 "<'row'<'col-sm-6'i><'col-sm-6'p>>",
             buttons: [{
                 extend: 'excelHtml5',
                 className: "btn btn-success",
-                text:'Download report'
+                text: 'Download report'
             }]
         });
 

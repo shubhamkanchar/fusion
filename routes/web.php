@@ -100,11 +100,13 @@ Route::middleware(['auth', 'user-access:admin','verified'])->prefix('admin')->na
     Route::get('/request/update/{id}', [AdminController::class, 'request_update'])->name('request_update');
     route::get('pdf/{id}',[AdminController::class, 'delete_pdf'])->name('delete_pdf');
     route::get('request_data',[AdminController::class, 'requestData'])->name('requestData');
+    route::get('request_data2',[AdminController::class, 'requestData2'])->name('requestData2');
 });
 
 Route::middleware(['auth', 'user-access:manager','verified'])->prefix('manager')->name('manager.')->group(function () {
     Route::get('/home', [Manager::class, 'index'])->name('home');
-
+    route::get('request_data',[AdminController::class, 'requestData'])->name('requestData');
+    route::get('request_data2',[AdminController::class, 'requestData2'])->name('requestData2');
     Route::get('/request/list', [Manager::class, 'request_list'])->name('request_list');
     Route::get('/request/update/{id}', [Manager::class, 'request_update'])->name('request_update');
 });

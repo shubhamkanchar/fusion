@@ -20,7 +20,7 @@ class AdminController extends Controller
         $u_count=User::where('type',0)->count();
         $b_count=batches::count();
         $c_count=cources::count();
-        return view('admin.home',compact($r_count,$u_count,$b_count,$c_count));
+        return view('admin.home',compact('r_count','u_count','b_count','c_count'));
     }
 
     public function add_batch()
@@ -363,7 +363,11 @@ class AdminController extends Controller
     public function request_update(Request $request)
     {
         ModelsRequest::where('id',$request->id)->update(['status'=>1]);
-        return redirect()->route('admin.request_list')->with('success','request updated successfully');
+        return response()->json([
+            'status'=>1,
+            'msg'=>'Request updated Successfully'
+        ]);
+        //return redirect()->route('admin.request_list')->with('success','request updated successfully');
     }
 
     public function delete_pdf(Request $request)
@@ -396,5 +400,16 @@ class AdminController extends Controller
                  ->groupBy('date')
                  ->get();
         return response()->json($request);
+    }
+
+    public function requestData2(){
+        $cb_count = ModelsRequest::where('type','callback')->count();
+        $vs_count = ModelsRequest::where('type','visit')->count();
+        $ms_count = ModelsRequest::where('type','message')->count();
+        return response()->json([
+            'cb_count'=>$cb_count,
+            'vs_count'=>$vs_count,
+            'ms_count'=>$ms_count
+        ]);
     }
 }
