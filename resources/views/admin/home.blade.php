@@ -95,10 +95,10 @@
     </div>
     <div class="row">
         <div class="col-md-6">
-            <div id="myChart" class="width: 100%;height:400px;"></div>
+            <div id="myChart" style="height:400px" class="w-100 he-400"></div>
         </div>
         <div class="col-md-6">
-            <div id="main2" class="width-10;height:400px;"></div>
+            <div id="main2" style="height:400px" class="w-100 he-400"></div>
         </div>
     </div>
 </div>
@@ -144,7 +144,6 @@
                     counts.push(value['total']);
                 });
 
-                console.log(counts);
                 option = {
                     title: {
                         text: 'Request received'

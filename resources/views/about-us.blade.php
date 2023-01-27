@@ -42,10 +42,10 @@
                 <h4>Our Vision</h4>
                 <p>Our vision is to provide optimal, job oriened and real time training.</p>
             </div>
-            <!-- <div class="col-lg-6 col-md-12 mt-4">
+            <div class="col-lg-6 col-md-12 mt-4">
                 <h4>Our Mission</h4>
                 <p>Our Mission is to place students in IT industry and make them financially strong, productive and successful.</p>
-            </div> -->
+            </div>
         </div>
     </div>
 </section>

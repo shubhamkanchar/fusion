@@ -92,10 +92,10 @@
     </div>
     <div class="row">
         <div class="col-md-6">
-            <div id="myChart" class="w-100"></div>
+            <div id="myChart" style="height:400px" class="w-100 he-400"></div>
         </div>
         <div class="col-md-6">
-            <div id="main2" class="w-100"></div>
+            <div id="main2" style="height:400px" class="w-100 he-400"></div>
         </div>
     </div>
 </div>
