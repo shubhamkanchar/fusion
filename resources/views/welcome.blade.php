@@ -11,7 +11,7 @@
                     <div class="row">
                         <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-12 col-xs-12">
                             <div class="slider-captions">
-                                <h1 class="slider-title">Fusion Software Institute</h1>
+                                <h2 class="slider-title">Fusion Software Institute</h2>
                                 <p class="slider-text hidden-xs">We can help you conquer a wide range career problems.</p>
                                 <a href="{{ route('cources') }}" class="btn btn-success hidden-xs">View All Courses</a>
                             </div>
@@ -26,7 +26,7 @@
                 <div class="row">
                     <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-12 col-xs-12">
                         <div class="slider-captions">
-                            <h1 class="slider-title">Learning Software Course</h1>
+                            <h2 class="slider-title">Learning Software Course</h2>
                             <p class="slider-text hidden-xs">Get IT Courses and expert advise and Q&A session</p>
                             <a type="button" data-toggle="modal" data-target="#myModal" class="btn btn-success hidden-xs text-white">Book Demo</a>
                         </div>
@@ -91,7 +91,7 @@
             @if($c->course_status == 'on')
             <div class="col-md-4">
                 <div class="courc-card">
-                    <img style="height: 200px;" src="{{ url('public/uploads/course/').'/'.$c->file }}" alt="{{ $c->name }}">
+                    <img class="he-200" src="{{ url('public/uploads/course/').'/'.$c->file }}" alt="{{ $c->name }}">
                     <div class="cource-det">
                         <h6>{{ $c->name }}</h6>
                         <ul>

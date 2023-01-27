@@ -486,7 +486,7 @@ header {
 
 /* ===================================== Clinic Number Say CSS ================================== */
 .doctor-message {
-  background-image: url("../images/slider/slider_2.jpg");
+  /* background-image: url("../images/slider/slider_2.jpg"); */
   background-attachment: fixed;
   background-size: cover; }
   .doctor-message .inner-lay {
@@ -689,8 +689,59 @@ footer {
 .contact-rooo {
   padding: 50px;
   background-color: #FFF; }
-  @media screen and (max-width: 940px) {
-    .contact-rooo {
-      padding: 30px 10px; } }
 
+@media screen and (max-width: 940px) {
+    .contact-rooo {
+      padding: 30px 10px; } 
+}
+
+.copy span i {
+  margin-right: 20px;
+  font-size: 20px;
+}
+
+
+.he-10 {
+  height: 10px !important;
+}
+
+.he-20 {
+  height: 20px !important;
+}
+.he-30 {
+  height: 30px !important;
+}
+.he-40 {
+  height: 40px !important;
+}
+.he-50 {
+  height: 50px !important;
+}
+.he-60 {
+  height: 60px !important;
+}
+.he-70 {
+  height: 70px !important;
+}
+.he-80 {
+  height: 80px !important;
+}
+.he-90 {
+  height: 90px !important;
+}
+.he-200 {
+  height: 200px !important;
+}
+.wi-10{
+  width: 10%!important;
+}
+.wi-50{
+  width: 50px!important;
+}
+.wi-90{
+  width: 90%!important;
+}
+.fs-18{
+  font-size: 18px;
+}
 /*# sourceMappingURL=style.css.map */

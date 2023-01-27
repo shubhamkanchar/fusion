@@ -60,7 +60,7 @@
                 @endforeach
             </div>
             <div class="col-lg-6 col-md-12">
-                <img style="width: 100%;" src="{{ url('public/uploads/course/').'/'.$course->file }}" alt="{{ $course->name ?? '' }}">
+                <img class="w-100" src="{{ url('public/uploads/course/').'/'.$course->file }}" alt="{{ $course->name ?? '' }}">
                 <h4 class="mt-3">Fees : {{ $course->fees }} only</h4>
                 <h4 class="mt-3">Duration : {{ $course->duration }} Months</h4>
 

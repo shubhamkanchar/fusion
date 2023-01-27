@@ -18,27 +18,27 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-4 text-center">
-                <div style="margin:50px" class="serv">
-                    <h2 style="margin-top:10px;">Address</h2>
+                <div class="serv m-5">
+                    <h2 class="mt-2">Address</h2>
                     Office 101, 01st Floor, Stellar Spaces, Kharadi South Main Road, opp. Zensar, IT Park, Kharadi, Pune, Maharashtra 411014
                 </div>
             </div>
             <div class="col-sm-4 text-center">
-                <div style="margin:50px" class="serv">
-                    <h2 style="margin-top:10px;">Contact Number</h2>
+                <div class="m-5">
+                    <h2 class="mt-2">Contact Number</h2>
                     <p>+91 7498992609</p>
                     <p>+91 8380952885</p>
                 </div>
             </div>
             <div class="col-sm-4 text-center">
-                <div style="margin:50px" class="serv">
-                    <h2 style="margin-top:10px;">Email Address</h2>
+                <div class="m-5" class="serv">
+                    <h2 class="mt-2">Email Address</h2>
                     <p>inquiry@fusion-institute.com</p>
                 </div>
             </div>
             <div class="col-sm-6 mt-5">
-                <div style="margin-top:0px;" class="row no-margin">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d867.1463250800094!2d73.9404905458347!3d18.550636051084744!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c399308c4df7%3A0x56a3dd07e2356fa1!2sStellar%20Spaces!5e0!3m2!1sen!2sin!4v1662384040653!5m2!1sen!2sin" width="600" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <div class="mt-0" class="row no-margin">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d867.1463250800094!2d73.9404905458347!3d18.550636051084744!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c399308c4df7%3A0x56a3dd07e2356fa1!2sStellar%20Spaces!5e0!3m2!1sen!2sin!4v1662384040653!5m2!1sen!2sin" width="600" height="600" class="border border-0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
             <div class="col-sm-6 mt-5">

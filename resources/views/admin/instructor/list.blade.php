@@ -6,7 +6,7 @@
             <h1 class="h3 mb-0 text-gray-800">Batches List</h1>
         </div>
         <div class="col-md-12">
-            <table id="myTable" class="table table-striped table-bordered" style="width:100%">
+            <table id="myTable" class="table table-striped table-bordered w-100">
                 <thead>
                     <tr>
                         <th>Image</th>
@@ -19,7 +19,7 @@
                 <tbody>
                     @foreach($data as $d)
                     <tr>
-                        <td><img style="height:50px;width:50px"src="{{ url('public/uploads/instructor').'/'.$d->file }}" alt="{{ $d->name }}"></td>
+                        <td><img class="he-50 wi-50"src="{{ url('public/uploads/instructor').'/'.$d->file }}" alt="{{ $d->name }}"></td>
                         <td>{{ $d->name }}</td>
                         
                         <td>{{ $d->course }}</td>

@@ -18,7 +18,7 @@ $course=App\Models\cources::all();
                     <form id="visitscheduleform" action="{{ route('request_mail') }}">
                         @csrf()
                         <input type="hidden" name="token" value="visit">
-                        <h2 style="font-size:18px">Contact Form</h2>
+                        <h2 class="fs-18 text-center">Contact Form</h2>
                         <div class="row form-group">
                             <label> Name :</label>
                             <input type="text" placeholder="Enter Name" name="name" class="form-control input-sm" onkeydown="return /[a-zåäö ]/i.test(event.key)">
@@ -97,14 +97,14 @@ $course=App\Models\cources::all();
             <div class="col-md-4 tags">
                 <h2>Social Connect</h2>
                 <ul>
-                    <!-- <li><a><img style="width:50px" src="{{ url('public/assets/images/Google_plus.png') }}" alt="google"></a></li>
-                    <li><a><img style="width:50px" src="{{ url('public/assets/images/twitter.png') }}" alt="twitter"></a></li> -->
-                    <li><a target="_blank" href="https://m.facebook.com/profile.php?id=100088395132564&eav=AfZcb8GbgISBGWyFn8AttEB6DvU66jabdFgN9fDdff35l8xuyyWXV_U_3Uvv_F0HM2U&paipv=0"><img style="width:50px" src="{{ url('public/assets/images/facebook.png') }}" alt="facebook"></a></li>
-                    <li><a target="_blank" href="https://api.whatsapp.com/send/?phone={{ env('WHATSAPP_NO') }}&text={{ urlencode('I am intersted in course you provide') }}"><img style="width:50px" src="{{ url('public/assets/images/whatsapp.png') }}" alt="whatsapp"></a></li>
+                    <!-- <li><a><img class="wi-50" src="{{ url('public/assets/images/Google_plus.png') }}" alt="google"></a></li>
+                    <li><a><img class="wi-50" src="{{ url('public/assets/images/twitter.png') }}" alt="twitter"></a></li> -->
+                    <li><a target="_blank" href="https://m.facebook.com/profile.php?id=100088395132564&eav=AfZcb8GbgISBGWyFn8AttEB6DvU66jabdFgN9fDdff35l8xuyyWXV_U_3Uvv_F0HM2U&paipv=0"><img class="wi-50" src="{{ url('public/assets/images/facebook.png') }}" alt="facebook"></a></li>
+                    <li><a target="_blank" href="https://api.whatsapp.com/send/?phone={{ env('WHATSAPP_NO') }}&text={{ urlencode('I am intersted in course you provide') }}"><img class="wi-50" src="{{ url('public/assets/images/whatsapp.png') }}" alt="whatsapp"></a></li>
 
-                    <!-- <li><a><img style="width:50px" src="{{ url('public/assets/images/youtube.png') }}"></a></li> -->
-                    <li><a target="_blank" href="https://www.instagram.com/fusion_institute_pune/"><img style="width:50px" src="{{ url('public/assets/images/instagram.png') }}" alt="instagram"></a></li>
-                    <li><a target="_blank" href="https://www.linkedin.com/in/fusion-software-institute-493538258/"><img style="width:50px" src="{{ url('public/assets/images/LinkedIn.png') }}" alt="linkedin"></a></li>
+                    <!-- <li><a><img class="wi-50" src="{{ url('public/assets/images/youtube.png') }}"></a></li> -->
+                    <li><a target="_blank" href="https://www.instagram.com/fusion_institute_pune/"><img class="wi-50" src="{{ url('public/assets/images/instagram.png') }}" alt="instagram"></a></li>
+                    <li><a target="_blank" href="https://www.linkedin.com/in/fusion-software-institute-493538258/"><img class="wi-50" src="{{ url('public/assets/images/LinkedIn.png') }}" alt="linkedin"></a></li>
 
                 </ul>
             </div>
@@ -129,12 +129,12 @@ $course=App\Models\cources::all();
                     <div class="row">
                         <label>Select Course you are interested in :</label>
                         <div class="col-sm-12">
-                        <select name="course" rows="5" placeholder="Enter select course" class="form-control input-sm">
-                            <option></option>
-                            @foreach($course as $c)
-                            <option>{{ $c->name }}</option>
-                            @endforeach
-                        </select>
+                            <select name="course" rows="5" placeholder="Enter select course" class="form-control input-sm">
+                                <option></option>
+                                @foreach($course as $c)
+                                <option>{{ $c->name }}</option>
+                                @endforeach
+                            </select>
                         </div>
                     </div>
                     <div class="row">
@@ -147,16 +147,21 @@ $course=App\Models\cources::all();
         </div>
     </div>
 </footer>
-<div class="copy">
+<div class="copy float-none">
     <div class="container">
-        <a href="{{ route('welcome') }}">2022 &copy; All Rights Reserved | Designed and Developed by {{ config('app.name', 'Laravel') }}</a>
-
-        <span>
-            <a target="_blank" href="https://www.instagram.com/fusion_institute_pune/"><i class="text-white fab fa-instagram"></i></a>
-            <a target="_blank" href="https://api.whatsapp.com/send/?phone={{ env('WHATSAPP_NO') }}&text={{ urlencode('I am intersted in course you provide') }}"><i class="text-white fab fa-whatsapp"></i></a>
-            <!-- <a><i class="text-white fab fa-twitter"></i></a> -->
-            <a target="_blank" href="https://m.facebook.com/profile.php?id=100088395132564&eav=AfZcb8GbgISBGWyFn8AttEB6DvU66jabdFgN9fDdff35l8xuyyWXV_U_3Uvv_F0HM2U&paipv=0"><i class=" text-white fab fa-facebook-f"></i></a>
-            <a target="_blank" href="https://www.linkedin.com/in/fusion-software-institute-493538258/"><i class="text-white fab fa-linkedin"></i></a>
-        </span>
+        <div class="row">
+            <div class="col-lg-9 col-sm-12 mt-3">
+                <a href="{{ route('welcome') }}">2022 &copy; All Rights Reserved | Designed and Developed by {{ config('app.name', 'Laravel') }}</a>
+            </div>
+            <div class="col-lg-3 col-sm-12 mt-3">
+                <span class="float-none ">
+                    <a target="_blank" href="https://www.instagram.com/fusion_institute_pune/"><i class="text-white fab fa-instagram"></i></a>
+                    <a target="_blank" href="https://api.whatsapp.com/send/?phone={{ env('WHATSAPP_NO') }}&text={{ urlencode('I am intersted in course you provide') }}"><i class="text-white fab fa-whatsapp"></i></a>
+                    <!-- <a><i class="text-white fab fa-twitter"></i></a> -->
+                    <a target="_blank" href="https://m.facebook.com/profile.php?id=100088395132564&eav=AfZcb8GbgISBGWyFn8AttEB6DvU66jabdFgN9fDdff35l8xuyyWXV_U_3Uvv_F0HM2U&paipv=0"><i class=" text-white fab fa-facebook-f"></i></a>
+                    <a target="_blank" href="https://www.linkedin.com/in/fusion-software-institute-493538258/"><i class="text-white fab fa-linkedin"></i></a>
+                </span>
+            </div>
+        </div>
     </div>
 </div>

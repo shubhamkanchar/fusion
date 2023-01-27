@@ -6,7 +6,7 @@
             <h1 class="h3 mb-0 text-gray-800">Batches List</h1>
         </div>
         <div class="col-md-12 table-responsive">
-            <table border="0" cellspacing="5" cellpadding="5" class="mb-3" style="width:100%">
+            <table border="0" cellspacing="5" cellpadding="5" class="mb-3 w-100">
                 <tbody>
                     <tr>
                         <td>Minimum date:</td>
@@ -22,7 +22,7 @@
                     </tr>
                 </tbody>
             </table>
-            <table id="myTable" class="table table-striped table-bordered" style="width:100%">
+            <table id="myTable" class="table table-striped table-bordered w-100">
                 <thead>
                     <tr>
                         <th><input type="checkbox" name="select_all" value="" class="select_all"></th>

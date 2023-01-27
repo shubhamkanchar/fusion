@@ -2,16 +2,13 @@
 @section('content')
 <!-- Begin Page Content -->
 <div class="container-fluid">
-
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
         <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
     </div>
-
     <!-- Content Row -->
     <div class="row">
-
         <!-- Earnings (Monthly) Card Example -->
         <div class="col-xl-3 col-md-6 mb-4">
             <div class="card border-left-primary shadow h-100 py-2">
@@ -62,7 +59,7 @@
                                 </div>
                                 <!-- <div class="col">
                                     <div class="progress progress-sm mr-2">
-                                        <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                        <div class="progress-bar bg-info w-50" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
                                 </div> -->
                             </div>
@@ -95,10 +92,10 @@
     </div>
     <div class="row">
         <div class="col-md-6">
-            <div id="myChart" style="width: 100%;height:400px;"></div>
+            <div id="myChart" class="w-100"></div>
         </div>
         <div class="col-md-6">
-            <div id="main2" style="width: 100%;height:400px;"></div>
+            <div id="main2" class="w-100"></div>
         </div>
     </div>
 </div>
@@ -152,9 +149,6 @@
                     tooltip: {
                         trigger: 'axis'
                     },
-                    // legend: {
-                    //     data: ['Email', 'Union Ads', 'Video Ads', 'Direct', 'Search Engine']
-                    // },
                     grid: {
                         left: '3%',
                         right: '4%',

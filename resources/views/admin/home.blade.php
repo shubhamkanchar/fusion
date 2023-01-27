@@ -62,7 +62,7 @@
                                 </div>
                                 <!-- <div class="col">
                                     <div class="progress progress-sm mr-2">
-                                        <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                        <div class="progress-bar bg-info w-50" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
                                 </div> -->
                             </div>
@@ -95,10 +95,10 @@
     </div>
     <div class="row">
         <div class="col-md-6">
-            <div id="myChart" style="width: 100%;height:400px;"></div>
+            <div id="myChart" class="width: 100%;height:400px;"></div>
         </div>
         <div class="col-md-6">
-            <div id="main2" style="width: 100%;height:400px;"></div>
+            <div id="main2" class="width-10;height:400px;"></div>
         </div>
     </div>
 </div>

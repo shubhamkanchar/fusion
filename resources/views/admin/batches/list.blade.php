@@ -6,7 +6,7 @@
             <h1 class="h3 mb-0 text-gray-800">Batches List</h1>
         </div>
         <div class="col-md-12">
-            <table id="myTable" class="table table-striped table-bordered" style="width:100%">
+            <table id="myTable" class="table table-striped table-bordered w-100">
                 <thead>
                     <tr>
                         <th>Batch Course Name</th>
