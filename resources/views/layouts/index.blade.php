@@ -5,11 +5,10 @@
   @include('layouts.top')
   @yield('css')
   <link rel="canonical" href="https://fusion-institute.com/" />
-  <link rel="canonical" href="https://fusion-institute.com/ about-us/" />
-  <link rel="canonical" href="https://fusion-institute.com/ courses/" />
-  <link rel="canonical" href="https://fusion-institute.com/ batches/" />
-  <link rel="canonical" href="https://fusion-institute.com/ contact-us /" />
-
+  <link rel="canonical" href="https://fusion-institute.com/about-us/" />
+  <link rel="canonical" href="https://fusion-institute.com/courses/" />
+  <link rel="canonical" href="https://fusion-institute.com/batches/" />
+  <link rel="canonical" href="https://fusion-institute.com/contact-us /" />
   <!-- Meta Pixel Code -->
   <script>
     ! function(f, b, e, v, n, t, s) {
@@ -46,6 +45,19 @@
     }
     gtag('js', new Date());
     gtag('config', 'G-NF4RLJ5R13');
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "WebSite",
+      "name": "Fusion Software Institute Pune",
+      "url": "https://fusion-institute.com/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "{search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
   </script>
 </head>
 

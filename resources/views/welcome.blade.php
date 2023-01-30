@@ -1,5 +1,4 @@
 @extends('layouts.index')
-
 @section('content')
 <div class="slider">
     <!-- Set up your HTML -->
@@ -40,7 +39,7 @@
                 <div class="row">
                     <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-12 col-xs-12">
                         <div class="slider-captions">
-                            <h1 class="slider-title">Best Software Training in Pune</h1>
+                            <h2 class="slider-title">Best Software Training in Pune</h2>
                             <p class="slider-text hidden-xs">Learn by working on live project in top tech company</p>
                             <a href="{{ route('login') }}" class="btn btn-success hidden-xs">Join Today</a>
                         </div>
@@ -98,7 +97,7 @@
                             <li><i class="fas fa-graduation-cap"></i> TRAINER-LED <span>{{ $c->seats }} Seats</span></li>
                             <li><i class="far fa-calendar-plus"></i> {{ $c->duration }} Months</li>
                         </ul>
-                        <!-- <div class="text-center"><a href="{{ route('details',['id'=>$c->id]) }}" class="btn btn-success sm-btn">Read more</a></div> -->
+                        <div class="text-center"><a href="{{ route('details',['id'=>$c->id]) }}" class="btn btn-success sm-btn">Read more</a></div>
                     </div>
                 </div>
             </div>
