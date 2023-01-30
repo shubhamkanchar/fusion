@@ -83,6 +83,7 @@
 <div class="popular-cources">
     <div class="container">
         <div class="session-title row">
+            <h1 class="hidden">Fusion is Best Software Training in Pune</h1>
             <h2>Our Courses</h2>
         </div>
         <div class="row courc-ro">

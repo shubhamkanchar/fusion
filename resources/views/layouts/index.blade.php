@@ -5,10 +5,6 @@
   @include('layouts.top')
   @yield('css')
   <link rel="canonical" href="https://fusion-institute.com/" />
-  <link rel="canonical" href="https://fusion-institute.com/about-us/" />
-  <link rel="canonical" href="https://fusion-institute.com/courses/" />
-  <link rel="canonical" href="https://fusion-institute.com/batches/" />
-  <link rel="canonical" href="https://fusion-institute.com/contact-us /" />
   <!-- Meta Pixel Code -->
   <script>
     ! function(f, b, e, v, n, t, s) {
