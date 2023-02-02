@@ -99,7 +99,7 @@ $course=App\Models\cources::select(['name'])->get();
                 <ul>
                     <!-- <li><a><img class="wi-50" src="{{ url('public/assets/images/Google_plus.png') }}" alt="google"></a></li>
                     <li><a><img class="wi-50" src="{{ url('public/assets/images/twitter.png') }}" alt="twitter"></a></li> -->
-                    <li><a target="_blank" href="https://m.facebook.com/profile.php?id=100088395132564"><img class="wi-50" src="{{ url('public/assets/images/facebook.png') }}" alt="facebook"></a></li>
+                    <li><a target="_blank" href="https://www.facebook.com/profile.php?id=100088395132564&mibextid=ZbWKwL"><img class="wi-50" src="{{ url('public/assets/images/facebook.png') }}" alt="facebook"></a></li>
                     <li><a target="_blank" href="https://api.whatsapp.com/send/?phone={{ env('WHATSAPP_NO') }}&text={{ urlencode('I am intersted in course you provide') }}"><img class="wi-50" src="{{ url('public/assets/images/whatsapp.png') }}" alt="whatsapp"></a></li>
 
                     <!-- <li><a><img class="wi-50" src="{{ url('public/assets/images/youtube.png') }}"></a></li> -->
@@ -158,7 +158,7 @@ $course=App\Models\cources::select(['name'])->get();
                     <a target="_blank" href="https://www.instagram.com/fusion_institute_pune/"><i class="text-white fab fa-instagram"></i></a>
                     <a target="_blank" href="https://api.whatsapp.com/send/?phone={{ env('WHATSAPP_NO') }}&text={{ urlencode('I am intersted in course you provide') }}"><i class="text-white fab fa-whatsapp"></i></a>
                     <!-- <a><i class="text-white fab fa-twitter"></i></a> -->
-                    <a target="_blank" href="https://m.facebook.com/profile.php?id=100088395132564"><i class=" text-white fab fa-facebook-f"></i></a>
+                    <a target="_blank" href="https://www.facebook.com/profile.php?id=100088395132564&mibextid=ZbWKwL"><i class=" text-white fab fa-facebook-f"></i></a>
                     <a target="_blank" href="https://www.linkedin.com/in/fusion-software-institute-493538258/"><i class="text-white fab fa-linkedin"></i></a>
                 </span>
             </div>

@@ -14,7 +14,7 @@
                         <li><a target="_blank" href="https://www.instagram.com/fusion_institute_pune/"><i class="text-white fab fa-instagram"></i></a></li>
                         <li> <a target="_blank" href="https://api.whatsapp.com/send/?phone={{ env('WHATSAPP_NO') }}&text={{ urlencode('I am intersted in course you provide') }}"><i class="text-white fab fa-whatsapp"></i></a></li>
                         <!-- <li><a><i class="text-white fab fa-twitter"></i></a></li> -->
-                        <li> <a target="_blank" href="https://m.facebook.com/profile.php?id=100088395132564"><i class=" text-white fab fa-facebook-f"></i></a></li>
+                        <li> <a target="_blank" href="https://www.facebook.com/profile.php?id=100088395132564&mibextid=ZbWKwL"><i class=" text-white fab fa-facebook-f"></i></a></li>
                         <li><a target="_blank" href="https://www.linkedin.com/in/fusion-software-institute-493538258/"><i class="text-white fab fa-linkedin"></i></a></li>
                     </ul>
                 </div>
