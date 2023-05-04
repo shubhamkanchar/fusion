@@ -76,8 +76,7 @@ $course=App\Models\cources::select(['name'])->get();
                     <div class="icon">
                         <i class="fas fa-mobile-alt"></i>
                     </div>
-                    <div class="addet">
-                        +91 7498992609 , +91 8380952885
+                    <div class="addet">7498992609, 7741817273, 7719987273
                     </div>
                 </div>
             </div>

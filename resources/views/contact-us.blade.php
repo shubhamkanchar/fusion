@@ -26,8 +26,9 @@
             <div class="col-sm-4 text-center">
                 <div class="m-5">
                     <h2 class="mt-2">Contact Number</h2>
-                    <p>+91 7498992609</p>
-                    <p>+91 8380952885</p>
+                    <p>7498992609</p>
+                    <p>7741817273</p>
+                    <p>7719987273</p>
                 </div>
             </div>
             <div class="col-sm-4 text-center">
@@ -118,8 +119,8 @@
                 comment: {
                     required: true
                 },
-                course:{
-                    required:true,
+                course: {
+                    required: true,
                 }
             },
             messages: {
@@ -136,8 +137,8 @@
                 comment: {
                     required: "Please enter message we would like to hear from you"
                 },
-                course:{
-                    required:'Please select course',
+                course: {
+                    required: 'Please select course',
                 }
             },
             submitHandler: function(form, e) {

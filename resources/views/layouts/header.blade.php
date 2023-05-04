@@ -6,7 +6,7 @@
                 <div class="col-lg-6 col-md-12 left-item">
                     <ul>
                         <li><i class="fas fa-envelope-square"></i> inquiry@fusion-institute.com</li>
-                        <li><i class="fas fa-phone-square"></i> +91 7498992609 , +91 8380952885</li>
+                        <li><i class="fas fa-phone-square"></i> 7498992609, 7741817273, 7719987273</li>
                     </ul>
                 </div>
                 <div class="col-lg-6 d-none d-lg-block right-item">
