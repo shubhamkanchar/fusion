@@ -266,31 +266,34 @@
 @section('jspage')
 <script>
     $(document).ready(function() {
+        if (window.matchMedia("(max-width: 767px)").matches) {} else {
+            //play/pause on double click on the video
+            $('video').on('click', function(e) {
+                if (this.paused) {
+                    this.play();
+                } else {
+                    this.pause();
+                }
+            });
+        }
 
-        //play/pause on double click on the video
-        $('video').on('click', function(e) {
-            if (this.paused) {
-                this.play();
-            } else {
-                this.pause();
-            }
-        });
+        if (window.matchMedia("(max-width: 767px)").matches) {} else {
+            //play/pause of the video when the modal opens/closes. 
+            $('.modal').on('show.bs.modal', function() { //show modal event for an element which has class 'modal'
+                var id = $(this).attr('id'); //saves in the var the ID value of the opened modal
+                var video = document.getElementById(id).querySelectorAll("video"); //Find the element 'video' inside of the modal defined by the ID previosly saved
 
-        //play/pause of the video when the modal opens/closes. 
-        $('.modal').on('show.bs.modal', function() { //show modal event for an element which has class 'modal'
-            var id = $(this).attr('id'); //saves in the var the ID value of the opened modal
-            var video = document.getElementById(id).querySelectorAll("video"); //Find the element 'video' inside of the modal defined by the ID previosly saved
+                $(video)[0].play(); //plays what we saved on 'video' variable      
+            });
 
-            $(video)[0].play(); //plays what we saved on 'video' variable      
-        });
+            $('.modal').on('hidden.bs.modal', function() { //show modal event for an element which has class 'modal'
+                var id = $(this).attr('id'); //saves in the var the ID value of the closed modal
+                var video = document.getElementById(id).querySelectorAll("video"); //Find the element 'video' inside of the modal defined by the ID previosly saved
 
-        $('.modal').on('hidden.bs.modal', function() { //show modal event for an element which has class 'modal'
-            var id = $(this).attr('id'); //saves in the var the ID value of the closed modal
-            var video = document.getElementById(id).querySelectorAll("video"); //Find the element 'video' inside of the modal defined by the ID previosly saved
-
-            $(video)[0].pause(); //pauses the video
-            $(video)[0].currentTime = 0; //rests the video to 0 for have it from the beging when the user opens the modal again
-        });
+                $(video)[0].pause(); //pauses the video
+                $(video)[0].currentTime = 0; //rests the video to 0 for have it from the beging when the user opens the modal again
+            });
+        }
 
     });
 </script>
