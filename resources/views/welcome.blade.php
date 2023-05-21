@@ -8,6 +8,9 @@
                 <div class="slider-img"><img alt="Software Testing Course" src="{{ url('public/assets/images/slider/slider-1.jpg') }}"></div>
                 <div class="container">
                     <div class="row">
+                        <button id="play-video" class="video-play-button" data-toggle="modal" data-target="#exampleModal"> <span></span></button>
+                    </div>
+                    <div class="row">
                         <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-12 col-xs-12">
                             <div class="slider-captions">
                                 <h2 class="slider-title">Fusion Software Institute</h2>
@@ -20,8 +23,11 @@
             </div>
         </div>
         <div class="item">
-            <div class="slider-img"><img alt="Top IT courses" src="{{ url('public/assets/images/slider/slider-2.jpg') }}" ></div>
+            <div class="slider-img"><img alt="Top IT courses" src="{{ url('public/assets/images/slider/slider-2.jpg') }}"></div>
             <div class="container">
+                <div class="row">
+                    <button id="play-video" class="video-play-button" data-toggle="modal" data-target="#exampleModal"> <span></span></button>
+                </div>
                 <div class="row">
                     <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-12 col-xs-12">
                         <div class="slider-captions">
@@ -36,6 +42,9 @@
         <div class="item">
             <div class="slider-img"> <img alt="Online IT Courses" src="{{ url('public/assets/images/slider/slider-3.jpg') }}"></div>
             <div class="container">
+                <div class="row">
+                    <button id="play-video" class="video-play-button" data-toggle="modal" data-target="#exampleModal"> <span></span></button>
+                </div>
                 <div class="row">
                     <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-12 col-xs-12">
                         <div class="slider-captions">
@@ -233,4 +242,56 @@
         </div>
     </div>
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Fusion</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body text-center">
+                <video id="myvideo" width="70%" controls>
+                    <source src="{{ url('public/assets/video/fusion.mp4')}}" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
+
+@section('jspage')
+<script>
+    $(document).ready(function() {
+
+        //play/pause on double click on the video
+        $('video').on('click', function(e) {
+            if (this.paused) {
+                this.play();
+            } else {
+                this.pause();
+            }
+        });
+
+        //play/pause of the video when the modal opens/closes. 
+        $('.modal').on('show.bs.modal', function() { //show modal event for an element which has class 'modal'
+            var id = $(this).attr('id'); //saves in the var the ID value of the opened modal
+            var video = document.getElementById(id).querySelectorAll("video"); //Find the element 'video' inside of the modal defined by the ID previosly saved
+
+            $(video)[0].play(); //plays what we saved on 'video' variable      
+        });
+
+        $('.modal').on('hidden.bs.modal', function() { //show modal event for an element which has class 'modal'
+            var id = $(this).attr('id'); //saves in the var the ID value of the closed modal
+            var video = document.getElementById(id).querySelectorAll("video"); //Find the element 'video' inside of the modal defined by the ID previosly saved
+
+            $(video)[0].pause(); //pauses the video
+            $(video)[0].currentTime = 0; //rests the video to 0 for have it from the beging when the user opens the modal again
+        });
+
+    });
+</script>
 @endsection

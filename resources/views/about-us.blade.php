@@ -8,6 +8,7 @@
             <ul>
                 <li> <a href="{{ route('welcome') }}"><i class="fas fa-home"></i> Home</a></li>
                 <li><i class="fas fa-angle-double-right"></i> About Us</li>
+                
             </ul>
         </div>
     </div>
@@ -20,6 +21,7 @@
         <div class="row">
             <div class="col-lg-6 col-md-12">
                 <img src="{{ url('public/assets/images/why.jpg') }}" alt="why choose us">
+                <button style="top:50%" id="play-video" class="video-play-button" data-toggle="modal" data-target="#exampleModal1"> <span></span></button>
             </div>
             <div class="col-lg-6 col-md-12 txtr">
                 <h4>Why choose us ?</h4>
@@ -113,4 +115,57 @@
     </div>
 </div>
 @endif
+
+<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Why Choose Us?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body text-center">
+                <video id="myvideo1" width="70%" controls>
+                    <source src="{{ url('public/assets/video/fusion-promotion.mp4') }}" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </div>
+</div>
+
+@endsection
+
+
+@section('jspage')
+<script>
+    $(document).ready(function() {
+
+        //play/pause on double click on the video
+        $('video').on('click', function(e) {
+            if (this.paused) {
+                this.play();
+            } else {
+                this.pause();
+            }
+        });
+
+        //play/pause of the video when the modal opens/closes. 
+        $('.modal').on('show.bs.modal', function() { //show modal event for an element which has class 'modal'
+            var id = $(this).attr('id'); //saves in the var the ID value of the opened modal
+            var video = document.getElementById(id).querySelectorAll("video"); //Find the element 'video' inside of the modal defined by the ID previosly saved
+
+            $(video)[0].play(); //plays what we saved on 'video' variable      
+        });
+
+        $('.modal').on('hidden.bs.modal', function() { //show modal event for an element which has class 'modal'
+            var id = $(this).attr('id'); //saves in the var the ID value of the closed modal
+            var video = document.getElementById(id).querySelectorAll("video"); //Find the element 'video' inside of the modal defined by the ID previosly saved
+
+            $(video)[0].pause(); //pauses the video
+            $(video)[0].currentTime = 0; //rests the video to 0 for have it from the beging when the user opens the modal again
+        });
+
+    });
+</script>
 @endsection

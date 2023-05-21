@@ -4,6 +4,77 @@
 <head>
   @include('layouts.top')
   @yield('css')
+  <style>
+    .video-play-button {
+      position: absolute;
+      z-index: 10;
+      top: 80%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      box-sizing: content-box;
+      display: block;
+      width: 15px;
+      height: 12px;
+      background: #43cb89;
+      border-radius: 50%;
+      padding: 9px 24px 18px 28px;
+    }
+
+    .video-play-button:before {
+      content: "";
+      position: absolute;
+      z-index: 0;
+      left: 50%;
+      top: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      display: block;
+      width: 75px;
+      height: 75px;
+      background: #43cb89;
+      border-radius: 50%;
+      animation: pulse-border 1500ms ease-out infinite;
+    }
+
+    .video-play-button:after {
+      content: "";
+      position: absolute;
+      z-index: 1;
+      left: 50%;
+      top: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      display: block;
+      width: 70px;
+      height: 70px;
+      background: #43cb89;
+      border-radius: 50%;
+      transition: all 200ms;
+      border: solid 4px #fff;
+    }
+
+
+    .video-play-button span {
+      display: block;
+      position: relative;
+      z-index: 3;
+      width: 0;
+      height: 0;
+      border-left: 18px solid #fff;
+      border-top: 10px solid transparent;
+      border-bottom: 12px solid transparent;
+    }
+
+    @keyframes pulse-border {
+      0% {
+        transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1);
+        opacity: 1;
+      }
+
+      100% {
+        transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1.5);
+        opacity: 0;
+      }
+    }
+  </style>
   <link rel="canonical" href="https://fusion-institute.com/" />
   <!-- Meta Pixel Code -->
   <script>
