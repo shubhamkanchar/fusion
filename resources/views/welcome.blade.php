@@ -8,7 +8,7 @@
                 <div class="slider-img"><img alt="Software Testing Course" src="{{ url('public/assets/images/slider/slider-1.jpg') }}"></div>
                 <div class="container">
                     <div class="row">
-                        <button id="play-video" class="video-play-button" data-toggle="modal" data-target="#exampleModal"> <span></span></button>
+                        <button id="play-video" class="video-play-button" data-toggle="modal" data-target="#resumeModel"> <span></span></button>
                     </div>
                     <div class="row">
                         <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-12 col-xs-12">
@@ -26,7 +26,7 @@
             <div class="slider-img"><img alt="Top IT courses" src="{{ url('public/assets/images/slider/slider-2.jpg') }}"></div>
             <div class="container">
                 <div class="row">
-                    <button id="play-video" class="video-play-button" data-toggle="modal" data-target="#exampleModal"> <span></span></button>
+                    <button id="play-video" class="video-play-button" data-toggle="modal" data-target="#courseModel"> <span></span></button>
                 </div>
                 <div class="row">
                     <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-12 col-xs-12">
@@ -43,7 +43,7 @@
             <div class="slider-img"> <img alt="Online IT Courses" src="{{ url('public/assets/images/slider/slider-3.jpg') }}"></div>
             <div class="container">
                 <div class="row">
-                    <button id="play-video" class="video-play-button" data-toggle="modal" data-target="#exampleModal"> <span></span></button>
+                    <button id="play-video" class="video-play-button" data-toggle="modal" data-target="#trainModel"> <span></span></button>
                 </div>
                 <div class="row">
                     <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-12 col-xs-12">
@@ -244,18 +244,108 @@
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+<div class="modal fade" id="introModel" tabindex="-1" role="dialog" aria-labelledby="introModelLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Fusion</h5>
+                <h5 class="modal-title" id="introModelLabel">Fusion</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body text-center">
-                <video id="myvideo" width="70%" controls>
-                    <source src="{{ url('public/assets/video/fusion.mp4')}}" type="video/mp4">
+                <video style="height: 500px;" id="myvideo" width="100%" controls>
+                    <source src="{{ url('public/assets/video/intro.mp4')}}" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="resumeModel" tabindex="-1" role="dialog" aria-labelledby="resumeModelLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="resumeModelLabel">Fusion</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body text-center">
+                <video style="height: 500px;" id="myvideo" width="100%" controls>
+                    <source src="{{ url('public/assets/video/resume.mp4')}}" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="introModel2" tabindex="-1" role="dialog" aria-labelledby="introModel2Label" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="introModel2Label">Fusion</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body text-center">
+                <video style="height: 500px;" id="myvideo" width="100%" controls>
+                    <source src="{{ url('public/assets/video/intro2.mp4')}}" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="guestModel" tabindex="-1" role="dialog" aria-labelledby="guestModelLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="guestModelLabel">Fusion</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body text-center">
+                <video style="height: 500px;" id="myvideo" width="100%" controls>
+                    <source src="{{ url('public/assets/video/guest.mp4')}}" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="courseModel" tabindex="-1" role="dialog" aria-labelledby="courseModelLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="courseModelLabel">Fusion</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body text-center">
+                <video style="height: 500px;" id="myvideo" width="100%" controls>
+                    <source src="{{ url('public/assets/video/course.mp4')}}" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="trainModel" tabindex="-1" role="dialog" aria-labelledby="trainModelLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="trainModelLabel">Fusion</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body text-center">
+                <video style="height: 500px;" id="myvideo" width="100%" controls>
+                    <source src="{{ url('public/assets/video/training.mp4')}}" type="video/mp4">
                 </video>
             </div>
         </div>
