@@ -10,6 +10,7 @@ use App\Http\Controllers\gallery;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Manager;
 use App\Http\Controllers\welcomeController;
+use App\Models\cources as ModelsCources;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -120,3 +121,8 @@ route::post('selected_delete', [AdminController::class, 'selected_delete'])->nam
 Route::get('/refund-policy', function (Request $request) {
     return view('refund-policy');
 })->name('refund-policy');
+
+Route::get('/fb', function (Request $request) {
+    $course=ModelsCources::orderBy('created_at','DESC')->get();
+    return view('fb',compact('course'));
+});
