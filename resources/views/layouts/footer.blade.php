@@ -103,7 +103,7 @@ $course=App\Models\cources::select(['name'])->get();
 
                     <!-- <li><a><img class="wi-50" src="{{ url('public/assets/images/youtube.png') }}"></a></li> -->
                     <li><a target="_blank" href="https://www.instagram.com/fusion_institute_pune/"><img class="wi-50" src="{{ url('public/assets/images/instagram.png') }}" alt="instagram"></a></li>
-                    <li><a target="_blank" href="https://www.linkedin.com/in/fusion-software-institute-493538258/"><img class="wi-50" src="{{ url('public/assets/images/LinkedIn.png') }}" alt="linkedin"></a></li>
+                    <li><a target="_blank" href="https://in.linkedin.com/company/fusion-software-institute-kharadi"><img class="wi-50" src="{{ url('public/assets/images/LinkedIn.png') }}" alt="linkedin"></a></li>
 
                 </ul>
             </div>
@@ -158,7 +158,7 @@ $course=App\Models\cources::select(['name'])->get();
                     <a target="_blank" href="https://api.whatsapp.com/send/?phone={{ env('WHATSAPP_NO') }}&text={{ urlencode('I am intersted in course you provide') }}"><i class="text-white fab fa-whatsapp"></i></a>
                     <!-- <a><i class="text-white fab fa-twitter"></i></a> -->
                     <a target="_blank" href="https://www.facebook.com/profile.php?id=100088395132564&mibextid=ZbWKwL"><i class=" text-white fab fa-facebook-f"></i></a>
-                    <a target="_blank" href="https://www.linkedin.com/in/fusion-software-institute-493538258/"><i class="text-white fab fa-linkedin"></i></a>
+                    <a target="_blank" href="https://in.linkedin.com/company/fusion-software-institute-kharadi"><i class="text-white fab fa-linkedin"></i></a>
                 </span>
             </div>
         </div>
